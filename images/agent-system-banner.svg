@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="360" viewBox="0 0 1400 360" role="img" aria-labelledby="title desc">
+  <title id="title">Agent System Learning Lab</title>
+  <desc id="desc">A bright agent icon beside the learning loop and a three-of-seven module progress indicator.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1737"/>
+      <stop offset="0.55" stop-color="#17245b"/>
+      <stop offset="1" stop-color="#371a64"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#63e8ff"/>
+      <stop offset="0.55" stop-color="#9c9bff"/>
+      <stop offset="1" stop-color="#ff8bd3"/>
+    </linearGradient>
+    <radialGradient id="halo">
+      <stop offset="0" stop-color="#7088ff" stop-opacity="0.38"/>
+      <stop offset="1" stop-color="#7088ff" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse">
+      <path d="M36 0H0V36" fill="none" stroke="#86a7ff" stroke-opacity="0.08" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1400" height="360" rx="28" fill="url(#background)"/>
+  <rect width="1400" height="360" rx="28" fill="url(#grid)"/>
+  <circle cx="1135" cy="163" r="245" fill="url(#halo)"/>
+  <path d="M0 313C267 249 429 394 704 314S1157 238 1400 311" fill="none" stroke="#9da8ff" stroke-opacity="0.17" stroke-width="2"/>
+  <rect x="54" y="52" width="6" height="257" rx="3" fill="url(#accent)"/>
+
+  <text x="82" y="83" fill="#83dfff" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" letter-spacing="5">LEARN  ·  BUILD  ·  TRACE</text>
+  <text x="78" y="166" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="800" letter-spacing="-2">Agent System</text>
+  <text x="78" y="246" fill="url(#accent)" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="800" letter-spacing="-2">Learning Lab</text>
+  <text x="82" y="300" fill="#c9d9ff" font-family="Arial, Helvetica, sans-serif" font-size="24">Observe  →  Decide  →  Act  →  Feedback</text>
+
+  <circle cx="1125" cy="165" r="120" fill="none" stroke="#9db5ff" stroke-opacity="0.28" stroke-width="2" stroke-dasharray="5 10"/>
+  <circle cx="1125" cy="165" r="95" fill="#182c65" stroke="#86a9ff" stroke-width="3"/>
+  <circle cx="1125" cy="51" r="9" fill="#63e8ff"/>
+  <circle cx="1236" cy="131" r="8" fill="#ff8bd3"/>
+  <circle cx="1035" cy="237" r="8" fill="#9c9bff"/>
+
+  <path d="M1125 91V80" stroke="#c4ddff" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="1125" cy="75" r="7" fill="#63e8ff"/>
+  <rect x="1051" y="105" width="148" height="112" rx="30" fill="#f3f7ff"/>
+  <rect x="1068" y="119" width="114" height="69" rx="22" fill="#172552"/>
+  <circle cx="1095" cy="153" r="10" fill="#63e8ff"/>
+  <circle cx="1155" cy="153" r="10" fill="#63e8ff"/>
+  <path d="M1106 175Q1125 189 1144 175" fill="none" stroke="#8fb7ff" stroke-width="4" stroke-linecap="round"/>
+  <rect x="1039" y="140" width="13" height="41" rx="6" fill="#8eafff"/>
+  <rect x="1199" y="140" width="13" height="41" rx="6" fill="#8eafff"/>
+
+  <rect x="1006" y="275" width="238" height="42" rx="21" fill="#13244e" stroke="#91a8f0" stroke-opacity="0.5"/>
+  <text x="1030" y="303" fill="#eaf3ff" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">3 / 7 MODULES LIVE</text>
+  <g transform="translate(1256 292)">
+    <circle cx="0" cy="0" r="8" fill="#63e8ff"/>
+    <circle cx="21" cy="0" r="8" fill="#86c8ff"/>
+    <circle cx="42" cy="0" r="8" fill="#a69fff"/>
+    <circle cx="63" cy="0" r="8" fill="none" stroke="#9babe4" stroke-width="2"/>
+    <circle cx="84" cy="0" r="8" fill="none" stroke="#9babe4" stroke-width="2"/>
+    <circle cx="105" cy="0" r="8" fill="none" stroke="#9babe4" stroke-width="2"/>
+    <circle cx="126" cy="0" r="8" fill="none" stroke="#9babe4" stroke-width="2"/>
+  </g>
+</svg>
