@@ -1,0 +1,3 @@
+openai
+python-dotenv
+socksio  # 当前环境通过 SOCKS 代理访问 API

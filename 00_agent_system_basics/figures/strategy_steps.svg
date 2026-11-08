@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1260 560" role="img" aria-labelledby="title desc">
+  <title id="title">六房间清扫：基础策略与进阶策略的执行步骤</title>
+  <desc id="desc">从 C 出发，A、B、D 干净，C、E、F 脏。基础策略执行 11 步，成本 13；进阶策略执行 7 步，成本 9。</desc>
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, "Noto Sans CJK SC", "PingFang SC", sans-serif; fill: #172033; }
+    .title { font-size: 27px; font-weight: 700; }
+    .subtitle { font-size: 15px; fill: #526174; }
+    .room { font-size: 20px; font-weight: 700; text-anchor: middle; }
+    .status { font-size: 13px; fill: #526174; text-anchor: middle; }
+    .section { font-size: 19px; font-weight: 700; }
+    .cost { font-size: 18px; font-weight: 700; text-anchor: end; }
+    .step rect { fill: #fff; stroke: #cbd5e1; stroke-width: 1.4; rx: 10; }
+    .step.clean rect { fill: #fff1c8; stroke: #e8ad39; }
+    .step.done rect { fill: #dceafe; stroke: #8aaeea; }
+    .number { font-size: 12px; fill: #64748b; }
+    .action { font-size: 15px; font-weight: 700; text-anchor: middle; }
+    .position { font-size: 13px; fill: #526174; text-anchor: middle; }
+    .arrow { font-size: 13px; fill: #8390a2; text-anchor: middle; }
+  </style>
+
+  <rect width="1260" height="560" fill="#f7f9fc"/>
+  <text x="38" y="48" class="title">六房间清扫：两种策略的执行步骤</text>
+  <text x="38" y="78" class="subtitle">起点 C · 清扫成本 2 / 次 · 移动成本 1 / 步 · 卡片下方字母表示动作后的所在房间</text>
+
+  <line x1="330" y1="137" x2="930" y2="137" stroke="#a8b5c6" stroke-width="4"/>
+  <circle cx="330" cy="137" r="25" fill="#e3e9f0" stroke="#b8c4d2" stroke-width="2"/>
+  <circle cx="450" cy="137" r="25" fill="#e3e9f0" stroke="#b8c4d2" stroke-width="2"/>
+  <circle cx="570" cy="137" r="30" fill="#ffda77" stroke="#3674cf" stroke-width="4"/>
+  <circle cx="690" cy="137" r="25" fill="#e3e9f0" stroke="#b8c4d2" stroke-width="2"/>
+  <circle cx="810" cy="137" r="25" fill="#ffda77" stroke="#e8ad39" stroke-width="2"/>
+  <circle cx="930" cy="137" r="25" fill="#ffda77" stroke="#e8ad39" stroke-width="2"/>
+  <text x="330" y="144" class="room">A</text><text x="330" y="180" class="status">干净</text>
+  <text x="450" y="144" class="room">B</text><text x="450" y="180" class="status">干净</text>
+  <text x="570" y="144" class="room">C</text><text x="570" y="180" class="status">脏 · 起点</text>
+  <text x="690" y="144" class="room">D</text><text x="690" y="180" class="status">干净</text>
+  <text x="810" y="144" class="room">E</text><text x="810" y="180" class="status">脏</text>
+  <text x="930" y="144" class="room">F</text><text x="930" y="180" class="status">脏</text>
+
+  <rect x="28" y="205" width="1204" height="160" rx="16" fill="#fff" stroke="#dce4ed"/>
+  <text x="48" y="235" class="section">基础策略：先向左探查 B、A，再向右清扫 E、F</text>
+  <text x="1210" y="235" class="cost">7 次移动 + 3 次清扫 = 13</text>
+  <g class="step clean" transform="translate(48 260)"><rect width="95" height="78"/><text x="10" y="17" class="number">1</text><text x="47.5" y="44" class="action">CLEAN</text><text x="47.5" y="65" class="position">C</text></g>
+  <g class="step" transform="translate(155 260)"><rect width="95" height="78"/><text x="10" y="17" class="number">2</text><text x="47.5" y="44" class="action">LEFT</text><text x="47.5" y="65" class="position">B</text></g>
+  <g class="step" transform="translate(262 260)"><rect width="95" height="78"/><text x="10" y="17" class="number">3</text><text x="47.5" y="44" class="action">LEFT</text><text x="47.5" y="65" class="position">A</text></g>
+  <g class="step" transform="translate(369 260)"><rect width="95" height="78"/><text x="10" y="17" class="number">4</text><text x="47.5" y="44" class="action">RIGHT</text><text x="47.5" y="65" class="position">B</text></g>
+  <g class="step" transform="translate(476 260)"><rect width="95" height="78"/><text x="10" y="17" class="number">5</text><text x="47.5" y="44" class="action">RIGHT</text><text x="47.5" y="65" class="position">C</text></g>
+  <g class="step" transform="translate(583 260)"><rect width="95" height="78"/><text x="10" y="17" class="number">6</text><text x="47.5" y="44" class="action">RIGHT</text><text x="47.5" y="65" class="position">D</text></g>
+  <g class="step" transform="translate(690 260)"><rect width="95" height="78"/><text x="10" y="17" class="number">7</text><text x="47.5" y="44" class="action">RIGHT</text><text x="47.5" y="65" class="position">E</text></g>
+  <g class="step clean" transform="translate(797 260)"><rect width="95" height="78"/><text x="10" y="17" class="number">8</text><text x="47.5" y="44" class="action">CLEAN</text><text x="47.5" y="65" class="position">E</text></g>
+  <g class="step" transform="translate(904 260)"><rect width="95" height="78"/><text x="10" y="17" class="number">9</text><text x="47.5" y="44" class="action">RIGHT</text><text x="47.5" y="65" class="position">F</text></g>
+  <g class="step clean" transform="translate(1011 260)"><rect width="95" height="78"/><text x="10" y="17" class="number">10</text><text x="47.5" y="44" class="action">CLEAN</text><text x="47.5" y="65" class="position">F</text></g>
+  <g class="step done" transform="translate(1118 260)"><rect width="95" height="78"/><text x="10" y="17" class="number">11</text><text x="47.5" y="44" class="action">DONE</text><text x="47.5" y="65" class="position">F</text></g>
+  <text x="149" y="307" class="arrow">→</text><text x="256" y="307" class="arrow">→</text><text x="363" y="307" class="arrow">→</text><text x="470" y="307" class="arrow">→</text><text x="577" y="307" class="arrow">→</text><text x="684" y="307" class="arrow">→</text><text x="791" y="307" class="arrow">→</text><text x="898" y="307" class="arrow">→</text><text x="1005" y="307" class="arrow">→</text><text x="1112" y="307" class="arrow">→</text>
+
+  <rect x="28" y="385" width="1204" height="142" rx="16" fill="#fff" stroke="#dce4ed"/>
+  <text x="48" y="415" class="section">进阶策略：知道左边已经干净，直接向右</text>
+  <text x="1210" y="415" class="cost">3 次移动 + 3 次清扫 = 9</text>
+  <g class="step clean" transform="translate(48 440)"><rect width="95" height="78"/><text x="10" y="17" class="number">1</text><text x="47.5" y="44" class="action">CLEAN</text><text x="47.5" y="65" class="position">C</text></g>
+  <g class="step" transform="translate(155 440)"><rect width="95" height="78"/><text x="10" y="17" class="number">2</text><text x="47.5" y="44" class="action">RIGHT</text><text x="47.5" y="65" class="position">D</text></g>
+  <g class="step" transform="translate(262 440)"><rect width="95" height="78"/><text x="10" y="17" class="number">3</text><text x="47.5" y="44" class="action">RIGHT</text><text x="47.5" y="65" class="position">E</text></g>
+  <g class="step clean" transform="translate(369 440)"><rect width="95" height="78"/><text x="10" y="17" class="number">4</text><text x="47.5" y="44" class="action">CLEAN</text><text x="47.5" y="65" class="position">E</text></g>
+  <g class="step" transform="translate(476 440)"><rect width="95" height="78"/><text x="10" y="17" class="number">5</text><text x="47.5" y="44" class="action">RIGHT</text><text x="47.5" y="65" class="position">F</text></g>
+  <g class="step clean" transform="translate(583 440)"><rect width="95" height="78"/><text x="10" y="17" class="number">6</text><text x="47.5" y="44" class="action">CLEAN</text><text x="47.5" y="65" class="position">F</text></g>
+  <g class="step done" transform="translate(690 440)"><rect width="95" height="78"/><text x="10" y="17" class="number">7</text><text x="47.5" y="44" class="action">DONE</text><text x="47.5" y="65" class="position">F</text></g>
+  <text x="149" y="487" class="arrow">→</text><text x="256" y="487" class="arrow">→</text><text x="363" y="487" class="arrow">→</text><text x="470" y="487" class="arrow">→</text><text x="577" y="487" class="arrow">→</text><text x="684" y="487" class="arrow">→</text>
+</svg>
