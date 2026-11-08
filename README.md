@@ -4,23 +4,23 @@ A hands-on, continuously updated guide to building and understanding agent syste
 
 **Status: actively updated (持续更新中).** Three modules are available now; the remaining modules are planned and will be added as their experiments are implemented. The detailed guides and code comments are primarily in Chinese.
 
-## Learning roadmap
+## Learning Roadmap
 
 ![Agent system learning roadmap, from basic principles to reliable autonomous execution](images/Agent学习路线图.png)
 
 The roadmap starts with the agent–environment loop: **observe → decide → act → receive feedback**. Modules 03–05 develop complementary capabilities: connecting tools, organizing information, and planning work. Module 06 brings those capabilities into an observable runtime, while Module 07 evaluates and improves the resulting system. These topics reinforce one another; the diagram is a learning map, not a strict dependency graph.
 
-| Module | Topic | What the experiments cover | Status |
-| --- | --- | --- | --- |
-| 01 | Agent fundamentals | Observation, actions, environment state, policies, and action costs in a six-room cleaning agent. | [Available](00_agent_system_basics/README.md) |
-| 02 | LLM decisions and the agent loop | Responses API function calls, tool execution, feedback, and the effect of instructions and `tool_choice`. | [Available](01_llm_agent_and_toolcalling/README.md) |
-| 03 | Tools, APIs, function calling, and MCP | Three ways to connect the same virtual phone capabilities: local Python functions, REST API, and MCP. | [Available](02_external_capabilities/README.md) |
-| 04 | Context, sessions, memory, and RAG | Managing conversation state, retrieving relevant information, and grounding answers in retrieved evidence. | Planned |
-| 05 | Planning, reflection, and skills | Breaking down tasks, revising plans from feedback, and reusing procedures. | Planned |
-| 06 | Harness and task runtime | Coordinating execution, state, limits, and monitoring around an agent. | Planned |
-| 07 | Verification, evaluation, and reliability | Checking outcomes, measuring performance, handling failures, and improving robustness. | Planned |
+| Module | Topic | What the experiments cover | Entry points | Status |
+| --- | --- | --- | --- | --- |
+| 01 | Agent fundamentals | Observation, actions, environment state, policies, and action costs in a six-room cleaning agent. | [Guide](00_agent_system_basics/README.md) · [Main code](00_agent_system_basics/cleaning_agent.py) | Available |
+| 02 | LLM decisions and the agent loop | Responses API function calls, tool execution, feedback, and the effect of instructions and `tool_choice`. | [Guide](01_llm_agent_and_toolcalling/README.md) · [Main code](01_llm_agent_and_toolcalling/agent_loop.py) | Available |
+| 03 | Tools, APIs, function calling, and MCP | Three ways to connect the same virtual phone capabilities: local Python functions, REST API, and MCP. | [Guide](02_external_capabilities/README.md) · [Main code](02_external_capabilities/agent.py) | Available |
+| 04 | Context, sessions, memory, and RAG | Managing conversation state, retrieving relevant information, and grounding answers in retrieved evidence. | — | Planned |
+| 05 | Planning, reflection, and skills | Breaking down tasks, revising plans from feedback, and reusing procedures. | — | Planned |
+| 06 | Harness and task runtime | Coordinating execution, state, limits, and monitoring around an agent. | — | Planned |
+| 07 | Verification, evaluation, and reliability | Checking outcomes, measuring performance, handling failures, and improving robustness. | — | Planned |
 
-The roadmap numbers describe the learning sequence. The existing code directories use `00`, `01`, and `02`; their links in the table lead to the corresponding modules.
+The roadmap numbers describe the learning sequence. The existing code directories use `00`, `01`, and `02`; the entry points above lead to their guides and main scripts.
 
 ## Available experiments
 
