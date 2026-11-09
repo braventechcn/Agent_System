@@ -5,15 +5,15 @@
 # Agent System Learning Lab
 
 <p align="center"><strong>Build an agent. Watch it decide. Trace what actually runs.</strong></p>
-<p align="center">🧪 4 runnable labs &nbsp;·&nbsp; 🧭 7-module roadmap &nbsp;·&nbsp; 🔄 Actively updated / 持续更新中</p>
+<p align="center">🧪 5 runnable labs &nbsp;·&nbsp; 🧭 7-module roadmap &nbsp;·&nbsp; 🔄 Actively updated / 持续更新中</p>
 <p align="center"><a href="#choose-a-lab">Choose a lab</a> · <a href="#learning-roadmap">Explore the roadmap</a> · <a href="#study-notes">Study notes</a> · <a href="#quick-start">Quick start</a></p>
 
-Follow an agent from a simple room-cleaning policy to LLM tool decisions, external capabilities, and the information that enters each model call. Each completed module pairs runnable Python with an experiment guide. The detailed guides and code comments are primarily in Chinese.
+Follow an agent from a simple room-cleaning policy to LLM tool decisions, external capabilities, context assembly, and plans that change after feedback. Each completed module pairs runnable Python with an experiment guide. The detailed guides and code comments are primarily in Chinese.
 
 ## Choose a lab
 
 > [!TIP]
-> Start with **01** to see the agent–environment loop without an LLM. Continue through **02** and **03** to inspect tool calls and connections, then use **04** to see how context is assembled.
+> Start with **01** to see the agent–environment loop without an LLM. Continue through **02** and **03** to inspect tool calls and connections, use **04** to see how context is assembled, then try **05** to watch a plan change after execution feedback.
 
 | 🧹 01 · Agent fundamentals | 📚 02 · LLM agent loop | 📱 03 · External capabilities |
 | --- | --- | --- |
@@ -21,6 +21,8 @@ Follow an agent from a simple room-cleaning policy to LLM tool decisions, extern
 | [Experiment guide](00_agent_system_basics/README.md) · [Main code](00_agent_system_basics/cleaning_agent.py) | [Experiment guide](01_llm_agent_and_toolcalling/README.md) · [Main code](01_llm_agent_and_toolcalling/agent_loop.py) · [Trace report](01_llm_agent_and_toolcalling/instruction_tool_choice_report.md) | [Experiment guide](02_external_capabilities/README.md) · [Main code](02_external_capabilities/agent.py) |
 
 > 🧠 **04 · Context, Session, Memory & RAG** — Build a study assistant that retrieves real project guides, persists session history and long-term preferences, and shows the context sent to the model. [Experiment guide](03_context_session_memory_rag/README.md) · [Main code](03_context_session_memory_rag/learning_agent.py)
+
+> 🧩 **05 · Planning, Reflection & Skill** — Schedule a meeting in a virtual calendar, inspect how a reusable Skill is discovered and loaded, then watch feedback trigger replanning and a targeted retry. [Experiment guide](04_planning_reflection_skill/README.md) · [Main code](04_planning_reflection_skill/agent.py) · [Sample Skill](04_planning_reflection_skill/skills/schedule-meeting/SKILL.md)
 
 ## Learning Roadmap
 
@@ -34,11 +36,11 @@ The roadmap starts with the agent–environment loop: **observe → decide → a
 | 02 | 📚 LLM decisions and the agent loop | Responses API function calls, tool execution, feedback, and the effect of instructions and `tool_choice`. | [Guide](01_llm_agent_and_toolcalling/README.md) · [Main code](01_llm_agent_and_toolcalling/agent_loop.py) | 🟢 Live |
 | 03 | 📱 Tools, APIs, function calling, and MCP | Three ways to connect the same virtual phone capabilities: local Python functions, REST API, and MCP. | [Guide](02_external_capabilities/README.md) · [Main code](02_external_capabilities/agent.py) | 🟢 Live |
 | 04 | 🧠 Context, sessions, memory, and RAG | Build context from persisted sessions, selected memories, and retrieved project documentation. | [Guide](03_context_session_memory_rag/README.md) · [Main code](03_context_session_memory_rag/learning_agent.py) | 🟢 Live |
-| 05 | 🧩 Planning, reflection, and skills | Breaking down tasks, revising plans from feedback, and reusing procedures. | — | 🟣 Planned |
+| 05 | 🧩 Planning, reflection, and skills | Discover and load a reusable procedure, plan a meeting, revise after a conflict, and repair a failed reminder. | [Guide](04_planning_reflection_skill/README.md) · [Main code](04_planning_reflection_skill/agent.py) · [Skill](04_planning_reflection_skill/skills/schedule-meeting/SKILL.md) | 🟢 Live |
 | 06 | ⚙️ Harness and task runtime | Coordinating execution, state, limits, and monitoring around an agent. | — | 🟣 Planned |
 | 07 | 🛡️ Verification, evaluation, and reliability | Checking outcomes, measuring performance, handling failures, and improving robustness. | — | 🟣 Planned |
 
-The roadmap numbers describe the learning sequence. The code directories use `00` through `03`; the entry points above lead to their guides and main scripts.
+The roadmap numbers describe the learning sequence. The code directories use `00` through `04`; the entry points above lead to their guides and main scripts.
 
 ## Study Notes
 
@@ -49,7 +51,7 @@ The accompanying Notion notes provide the conceptual reading for these experimen
 | Agent fundamentals and LLM agents | [Read notes](https://sphenoid-rhodium-72f.notion.site/Agent-Agent-LLM-Agent-40d9d02716b6802682e9c9ed6b4ba43c) | [01](00_agent_system_basics/README.md) · [02](01_llm_agent_and_toolcalling/README.md) |
 | Tools, APIs, Function Calling, and MCP | [Read notes](https://sphenoid-rhodium-72f.notion.site/Agent-Agent-Tool-API-Function-Calling-MCP-4109d02716b680f4bb5cc93f9383b68f) | [03](02_external_capabilities/README.md) |
 | Context, Session, Memory, and RAG | [Read notes](https://sphenoid-rhodium-72f.notion.site/Agent-Agent-Context-Session-Memory-RAG-4109d02716b680a8a3f5c6482bf87564) | [04](03_context_session_memory_rag/README.md) |
-| Planning, Reflection, and Skill | [Read notes](https://sphenoid-rhodium-72f.notion.site/Agent-Agent-Planning-Reflection-Skill-4109d02716b680a68216c1bfb3f033da) | Lab planned |
+| Planning, Reflection, and Skill | [Read notes](https://sphenoid-rhodium-72f.notion.site/Agent-Agent-Planning-Reflection-Skill-4109d02716b680a68216c1bfb3f033da) | [05](04_planning_reflection_skill/README.md) |
 
 Notion controls access to these pages. Repository links do not change their sharing permissions; readers need the pages to be published or shared with them.
 
@@ -71,9 +73,12 @@ The [virtual phone lab](02_external_capabilities/README.md) exposes calendar and
 
 The [study assistant](03_context_session_memory_rag/README.md) retrieves passages from the project's own guides, keeps session history and reusable preferences in SQLite, and prints the exact context assembled for each model call. Its experiments compare answers with and without history, memory, or retrieved evidence.
 
+### 🧩 05 · Planning, Reflection & Skill
+
+The [virtual meeting lab](04_planning_reflection_skill/README.md) turns a scheduling goal into an explicit plan, injects a calendar conflict and a reminder failure, and traces how feedback changes the next action. Its [sample Skill](04_planning_reflection_skill/skills/schedule-meeting/SKILL.md) exposes a short name and description for discovery, then loads the meeting procedure only when it applies. The Skill guides decisions; Python still executes calendar operations and verifies the saved result. Compare a reproducible offline run with an optional real LLM planner.
+
 ## Coming next
 
-- **🧩 05 · Planning and skills:** Give an agent a multi-step task, make its plan visible, and examine how feedback changes later steps. Extract a repeatable procedure into a reusable skill.
 - **⚙️ 06 · Harness and runtime:** Put the agent inside a controlled execution loop with explicit state, limits, logs, and monitoring so a complete run can be inspected and reproduced.
 - **🛡️ 07 · Evaluation and reliability:** Define success criteria, build repeatable test cases, and study incorrect tool use, recovery, and self-correction across varied inputs.
 
@@ -97,3 +102,11 @@ test -f .env || cp .env.example .env
 ```
 
 The virtual phone lab has [additional dependencies and setup steps](02_external_capabilities/README.md), including separate local services for its REST and MCP backends. The `.env` file and `.venv` directory are ignored by Git. Follow each module's README for its full setup, exercises, and expected observations.
+
+To explore Planning, Reflection, and Skill without an API call, run:
+
+```bash
+.venv/bin/python 04_planning_reflection_skill/agent.py
+```
+
+The [module guide](04_planning_reflection_skill/README.md) shows how to compare the initial plan, reflection, Skill loading, and the real LLM mode.

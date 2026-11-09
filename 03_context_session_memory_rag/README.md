@@ -195,4 +195,4 @@ OPENAI_MODEL=你的账户可用的模型
 | 真正送进模型的信息受预算控制 | `Context` 计数与 `=== Input sent to model ===` |
 | 字符预算与模型 Token 用量不是一回事 | `Context` 计数与 `Model usage` |
 
-这个教学实现只索引三个明确列出的本地 Markdown 文件，采用关键词检索；它无法像语义向量检索那样自然处理所有同义表达，也不会自动判断文档是否过时。Memory 由用户显式写入，未做自动抽取。引用和最终答案由模型生成，仍应结合来源检查。SQLite 数据库只保存在本机 `03_context_session_memory_rag/data/learning.sqlite3`，不会提交到远程。
+这个实践实现只索引三个明确列出的本地 Markdown 文件，采用关键词检索；它无法像语义向量检索那样自然处理所有同义表达，也不会自动判断文档是否过时。Memory 由用户显式写入，未做自动抽取。引用和最终答案由模型生成，仍应结合来源检查。SQLite 数据库只保存在本机 `03_context_session_memory_rag/data/learning.sqlite3`，不会提交到远程。

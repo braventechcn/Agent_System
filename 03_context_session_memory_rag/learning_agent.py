@@ -1,4 +1,6 @@
-"""学习资料助手：观察 Session、Memory 和 RAG 怎样组成单次 LLM Context。"""
+"""
+观察 Session、Memory 和 RAG 怎样组成单次 LLM Context
+"""
 
 import argparse
 import json
