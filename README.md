@@ -4,9 +4,40 @@
 
 <p align="center"><strong>Build an agent. Watch it decide. Trace what actually runs.</strong></p>
 <p align="center">🧪 5 runnable labs &nbsp;·&nbsp; 🧭 7-module roadmap &nbsp;·&nbsp; 🔄 Actively updated / 持续更新中</p>
-<p align="center"><a href="#choose-a-lab">Choose a lab</a> · <a href="#learning-roadmap">Explore the roadmap</a> · <a href="#study-notes">Study notes</a> · <a href="#quick-start">Quick start</a></p>
+<p align="center"><a href="#learning-roadmap">Learning roadmap</a> · <a href="#study-notes">Study notes</a> · <a href="#choose-a-lab">Choose a lab</a> · <a href="#inside-the-live-labs">Inside the labs</a> · <a href="#quick-start">Quick start</a></p>
 
 Explore agent systems through five runnable Python labs, from a six-room cleaner to a meeting planner that revises its plan after tool feedback. The detailed guides and code comments are primarily in Chinese.
+
+## Learning Roadmap
+
+![Agent system learning roadmap, from basic principles to reliable autonomous execution](images/Agent学习路线图.png)
+
+The roadmap starts with the agent–environment loop: **observe → decide → act → receive feedback**. Modules 03–05 develop complementary capabilities: connecting tools, organizing information, and planning work. Module 06 brings those capabilities into an observable runtime, while Module 07 evaluates and improves the resulting system. These topics reinforce one another; the diagram is a learning map, not a strict dependency graph.
+
+| Module | Topic | What the experiments cover | Entry points | Status |
+| --- | --- | --- | --- | --- |
+| 01 | 🧹 Agent fundamentals | Observation, actions, environment state, policies, and action costs in a six-room cleaning agent. | [Guide](00_agent_system_basics/README.md) · [Main code](00_agent_system_basics/cleaning_agent.py) | 🟢 Live |
+| 02 | 📚 LLM decisions and the agent loop | Responses API function calls, tool execution, feedback, and the effect of instructions and `tool_choice`. | [Guide](01_llm_agent_and_toolcalling/README.md) · [Main code](01_llm_agent_and_toolcalling/agent_loop.py) | 🟢 Live |
+| 03 | 📱 Tools, APIs, function calling, and MCP | Three ways to connect the same virtual phone capabilities: local Python functions, REST API, and MCP. | [Guide](02_external_capabilities/README.md) · [Main code](02_external_capabilities/agent.py) | 🟢 Live |
+| 04 | 🧠 Context, sessions, memory, and RAG | Build context from persisted sessions, selected memories, and retrieved project documentation. | [Guide](03_context_session_memory_rag/README.md) · [Main code](03_context_session_memory_rag/learning_agent.py) | 🟢 Live |
+| 05 | 🧩 Planning, reflection, and skills | Discover and load a reusable procedure, plan a meeting, revise after a conflict, and repair a failed reminder. | [Guide](04_planning_reflection_skill/README.md) · [Main code](04_planning_reflection_skill/agent.py) · [Skill](04_planning_reflection_skill/skills/schedule-meeting/SKILL.md) | 🟢 Live |
+| 06 | ⚙️ Harness and task runtime | Coordinating execution, state, limits, and monitoring around an agent. | — | 🟣 Planned |
+| 07 | 🛡️ Verification, evaluation, and reliability | Checking outcomes, measuring performance, handling failures, and improving robustness. | — | 🟣 Planned |
+
+The roadmap numbers describe the learning sequence. The code directories use `00` through `04`; the entry points above lead to their guides and main scripts.
+
+## Study Notes
+
+The accompanying Notion notes provide the conceptual reading for these experiments. Open the relevant note before running a lab, then return to the code and traces to test the ideas.
+
+| Topic | Notion notes | Related lab |
+| --- | --- | --- |
+| Agent fundamentals and LLM agents | [Read notes](https://sphenoid-rhodium-72f.notion.site/Agent-Agent-LLM-Agent-40d9d02716b6802682e9c9ed6b4ba43c) | [01](00_agent_system_basics/README.md) · [02](01_llm_agent_and_toolcalling/README.md) |
+| Tools, APIs, Function Calling, and MCP | [Read notes](https://sphenoid-rhodium-72f.notion.site/Agent-Agent-Tool-API-Function-Calling-MCP-4109d02716b680f4bb5cc93f9383b68f) | [03](02_external_capabilities/README.md) |
+| Context, Session, Memory, and RAG | [Read notes](https://sphenoid-rhodium-72f.notion.site/Agent-Agent-Context-Session-Memory-RAG-4109d02716b680a8a3f5c6482bf87564) | [04](03_context_session_memory_rag/README.md) |
+| Planning, Reflection, and Skill | [Read notes](https://sphenoid-rhodium-72f.notion.site/Agent-Agent-Planning-Reflection-Skill-4109d02716b680a68216c1bfb3f033da) | [05](04_planning_reflection_skill/README.md) |
+
+Notion controls access to these pages. Repository links do not change their sharing permissions; readers need the pages to be published or shared with them.
 
 ## Choose a lab
 
@@ -54,37 +85,6 @@ Follow **01 → 05** in order, or pick the topic you want to explore.
     </tr>
   </tbody>
 </table>
-
-## Learning Roadmap
-
-![Agent system learning roadmap, from basic principles to reliable autonomous execution](images/Agent学习路线图.png)
-
-The roadmap starts with the agent–environment loop: **observe → decide → act → receive feedback**. Modules 03–05 develop complementary capabilities: connecting tools, organizing information, and planning work. Module 06 brings those capabilities into an observable runtime, while Module 07 evaluates and improves the resulting system. These topics reinforce one another; the diagram is a learning map, not a strict dependency graph.
-
-| Module | Topic | What the experiments cover | Entry points | Status |
-| --- | --- | --- | --- | --- |
-| 01 | 🧹 Agent fundamentals | Observation, actions, environment state, policies, and action costs in a six-room cleaning agent. | [Guide](00_agent_system_basics/README.md) · [Main code](00_agent_system_basics/cleaning_agent.py) | 🟢 Live |
-| 02 | 📚 LLM decisions and the agent loop | Responses API function calls, tool execution, feedback, and the effect of instructions and `tool_choice`. | [Guide](01_llm_agent_and_toolcalling/README.md) · [Main code](01_llm_agent_and_toolcalling/agent_loop.py) | 🟢 Live |
-| 03 | 📱 Tools, APIs, function calling, and MCP | Three ways to connect the same virtual phone capabilities: local Python functions, REST API, and MCP. | [Guide](02_external_capabilities/README.md) · [Main code](02_external_capabilities/agent.py) | 🟢 Live |
-| 04 | 🧠 Context, sessions, memory, and RAG | Build context from persisted sessions, selected memories, and retrieved project documentation. | [Guide](03_context_session_memory_rag/README.md) · [Main code](03_context_session_memory_rag/learning_agent.py) | 🟢 Live |
-| 05 | 🧩 Planning, reflection, and skills | Discover and load a reusable procedure, plan a meeting, revise after a conflict, and repair a failed reminder. | [Guide](04_planning_reflection_skill/README.md) · [Main code](04_planning_reflection_skill/agent.py) · [Skill](04_planning_reflection_skill/skills/schedule-meeting/SKILL.md) | 🟢 Live |
-| 06 | ⚙️ Harness and task runtime | Coordinating execution, state, limits, and monitoring around an agent. | — | 🟣 Planned |
-| 07 | 🛡️ Verification, evaluation, and reliability | Checking outcomes, measuring performance, handling failures, and improving robustness. | — | 🟣 Planned |
-
-The roadmap numbers describe the learning sequence. The code directories use `00` through `04`; the entry points above lead to their guides and main scripts.
-
-## Study Notes
-
-The accompanying Notion notes provide the conceptual reading for these experiments. Open the relevant note before running a lab, then return to the code and traces to test the ideas.
-
-| Topic | Notion notes | Related lab |
-| --- | --- | --- |
-| Agent fundamentals and LLM agents | [Read notes](https://sphenoid-rhodium-72f.notion.site/Agent-Agent-LLM-Agent-40d9d02716b6802682e9c9ed6b4ba43c) | [01](00_agent_system_basics/README.md) · [02](01_llm_agent_and_toolcalling/README.md) |
-| Tools, APIs, Function Calling, and MCP | [Read notes](https://sphenoid-rhodium-72f.notion.site/Agent-Agent-Tool-API-Function-Calling-MCP-4109d02716b680f4bb5cc93f9383b68f) | [03](02_external_capabilities/README.md) |
-| Context, Session, Memory, and RAG | [Read notes](https://sphenoid-rhodium-72f.notion.site/Agent-Agent-Context-Session-Memory-RAG-4109d02716b680a8a3f5c6482bf87564) | [04](03_context_session_memory_rag/README.md) |
-| Planning, Reflection, and Skill | [Read notes](https://sphenoid-rhodium-72f.notion.site/Agent-Agent-Planning-Reflection-Skill-4109d02716b680a68216c1bfb3f033da) | [05](04_planning_reflection_skill/README.md) |
-
-Notion controls access to these pages. Repository links do not change their sharing permissions; readers need the pages to be published or shared with them.
 
 ## Inside the live labs
 
