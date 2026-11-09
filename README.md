@@ -15,14 +15,13 @@ Follow an agent from a simple room-cleaning policy to LLM tool decisions, extern
 > [!TIP]
 > Start with **01** to see the agent–environment loop without an LLM. Continue through **02** and **03** to inspect tool calls and connections, use **04** to see how context is assembled, then try **05** to watch a plan change after execution feedback.
 
-| 🧹 01 · Agent fundamentals | 📚 02 · LLM agent loop | 📱 03 · External capabilities |
+| Lab | What you'll explore | Start here |
 | --- | --- | --- |
-| Separate an agent's **chosen action** from the environment's **execution**. Compare cleaning policies and costs across six rooms. | Inspect the model's **function-call requests**, Python's tool execution, and the results returned to the model. | Run the same virtual phone task through **local functions**, **REST API**, and **MCP**. |
-| [Experiment guide](00_agent_system_basics/README.md) · [Main code](00_agent_system_basics/cleaning_agent.py) | [Experiment guide](01_llm_agent_and_toolcalling/README.md) · [Main code](01_llm_agent_and_toolcalling/agent_loop.py) · [Trace report](01_llm_agent_and_toolcalling/instruction_tool_choice_report.md) | [Experiment guide](02_external_capabilities/README.md) · [Main code](02_external_capabilities/agent.py) |
-
-> 🧠 **04 · Context, Session, Memory & RAG** — Build a study assistant that retrieves real project guides, persists session history and long-term preferences, and shows the context sent to the model. [Experiment guide](03_context_session_memory_rag/README.md) · [Main code](03_context_session_memory_rag/learning_agent.py)
-
-> 🧩 **05 · Planning, Reflection & Skill** — Schedule a meeting in a virtual calendar, inspect how a reusable Skill is discovered and loaded, then watch feedback trigger replanning and a targeted retry. [Experiment guide](04_planning_reflection_skill/README.md) · [Main code](04_planning_reflection_skill/agent.py) · [Sample Skill](04_planning_reflection_skill/skills/schedule-meeting/SKILL.md)
+| 🧹 **01 · Agent fundamentals** | Separate an agent's **chosen action** from the environment's **execution**. Compare cleaning policies and costs across six rooms. | [Guide](00_agent_system_basics/README.md) · [Code](00_agent_system_basics/cleaning_agent.py) |
+| 📚 **02 · LLM agent loop** | Inspect the model's **function-call requests**, Python's tool execution, and the results returned to the model. | [Guide](01_llm_agent_and_toolcalling/README.md) · [Code](01_llm_agent_and_toolcalling/agent_loop.py) · [Trace report](01_llm_agent_and_toolcalling/instruction_tool_choice_report.md) |
+| 📱 **03 · External capabilities** | Run the same virtual phone task through **local functions**, **REST API**, and **MCP**. | [Guide](02_external_capabilities/README.md) · [Code](02_external_capabilities/agent.py) |
+| 🧠 **04 · Context, Session, Memory & RAG** | Build a study assistant that retrieves project guides, persists session history and preferences, and shows the context sent to the model. | [Guide](03_context_session_memory_rag/README.md) · [Code](03_context_session_memory_rag/learning_agent.py) |
+| 🧩 **05 · Planning, Reflection & Skill** | Plan a virtual meeting, load a reusable Skill, and use execution feedback to replan or retry a failed step. | [Guide](04_planning_reflection_skill/README.md) · [Code](04_planning_reflection_skill/agent.py) · [Sample Skill](04_planning_reflection_skill/skills/schedule-meeting/SKILL.md) |
 
 ## Learning Roadmap
 
