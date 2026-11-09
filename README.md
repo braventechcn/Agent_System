@@ -1,14 +1,12 @@
-# Agent System Learning Lab
+<p align="center">
+  <img src="images/agent-system-banner.svg" alt="Agent System Learning Lab: observe, decide, act, and learn" width="100%">
+</p>
 
-![Agent System Learning Lab: observe, decide, act, and learn](images/agent-system-banner.svg)
+<p align="center"><strong>Build an agent. Watch it decide. Trace what actually runs.</strong></p>
+<p align="center">🧪 5 runnable labs &nbsp;·&nbsp; 🧭 7-module roadmap &nbsp;·&nbsp; 🔄 Actively updated / 持续更新中</p>
+<p align="center"><a href="#choose-a-lab">Choose a lab</a> · <a href="#learning-roadmap">Explore the roadmap</a> · <a href="#study-notes">Study notes</a> · <a href="#quick-start">Quick start</a></p>
 
-**Build an agent. Watch it decide. Trace what actually runs.**
-
-🧪 5 runnable labs · 🧭 7-module roadmap · 🔄 Actively updated / 持续更新中
-
-[Choose a lab](#choose-a-lab) · [Explore the roadmap](#learning-roadmap) · [Study notes](#study-notes) · [Quick start](#quick-start)
-
-Follow an agent from a simple room-cleaning policy to LLM tool decisions, external capabilities, context assembly, and plans that change after feedback. Each completed module pairs runnable Python with an experiment guide. The detailed guides and code comments are primarily in Chinese.
+Explore agent systems through five runnable Python labs, from a six-room cleaner to a meeting planner that revises its plan after tool feedback. The detailed guides and code comments are primarily in Chinese.
 
 ## Choose a lab
 
