@@ -16,11 +16,11 @@ Follow **01 → 05** in order, or pick the topic you want to explore.
 
 | Step | Lab | Focus | Open |
 | :---: | --- | --- | --- |
-| **01** | 🧹 Agent fundamentals | Chosen action → environment execution | [Guide](00_agent_system_basics/README.md) · [Code](00_agent_system_basics/cleaning_agent.py) |
-| **02** | 📚 LLM agent loop | Model tool request → Python execution | [Guide](01_llm_agent_and_toolcalling/README.md) · [Code](01_llm_agent_and_toolcalling/agent_loop.py) |
-| **03** | 📱 Tool integration | Local functions → REST API → MCP | [Guide](02_external_capabilities/README.md) · [Code](02_external_capabilities/agent.py) |
-| **04** | 🧠 Context & memory | Session → Memory → RAG context | [Guide](03_context_session_memory_rag/README.md) · [Code](03_context_session_memory_rag/learning_agent.py) |
-| **05** | 🧩 Planning & skills | Plan → reflect → replan | [Guide](04_planning_reflection_skill/README.md) · [Code](04_planning_reflection_skill/agent.py) |
+| **01** | 🧹 Agent fundamentals | Observe room state, choose and execute cleaning actions, then compare a simple policy with a minimum-cost policy across six rooms. | [Guide](00_agent_system_basics/README.md) · [Code](00_agent_system_basics/cleaning_agent.py) |
+| **02** | 📚 LLM agent loop | Trace the model's function-call requests, Python's tool execution, feedback to the model, and how instructions affect the loop. | [Guide](01_llm_agent_and_toolcalling/README.md) · [Code](01_llm_agent_and_toolcalling/agent_loop.py) |
+| **03** | 📱 Tool integration | Connect one virtual phone task through local Python functions, REST API, and MCP; inspect where each tool request travels. | [Guide](02_external_capabilities/README.md) · [Code](02_external_capabilities/agent.py) |
+| **04** | 🧠 Context & memory | Build a study assistant's model input from session history, saved preferences, and retrieved project guides; inspect the resulting context. | [Guide](03_context_session_memory_rag/README.md) · [Code](03_context_session_memory_rag/learning_agent.py) |
+| **05** | 🧩 Planning & skills | Discover and load a reusable Skill, plan a meeting, diagnose a calendar conflict and a failed reminder, then verify the repaired result. | [Guide](04_planning_reflection_skill/README.md) · [Code](04_planning_reflection_skill/agent.py) |
 
 ## Learning Roadmap
 
