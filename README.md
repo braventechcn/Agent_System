@@ -1,12 +1,12 @@
-<p align="center">
-  <img src="images/agent-system-banner.svg" alt="Agent System Learning Lab: observe, decide, act, and learn" width="100%">
-</p>
-
 # Agent System Learning Lab
 
-<p align="center"><strong>Build an agent. Watch it decide. Trace what actually runs.</strong></p>
-<p align="center">🧪 5 runnable labs &nbsp;·&nbsp; 🧭 7-module roadmap &nbsp;·&nbsp; 🔄 Actively updated / 持续更新中</p>
-<p align="center"><a href="#choose-a-lab">Choose a lab</a> · <a href="#learning-roadmap">Explore the roadmap</a> · <a href="#study-notes">Study notes</a> · <a href="#quick-start">Quick start</a></p>
+![Agent System Learning Lab: observe, decide, act, and learn](images/agent-system-banner.svg)
+
+**Build an agent. Watch it decide. Trace what actually runs.**
+
+🧪 5 runnable labs · 🧭 7-module roadmap · 🔄 Actively updated / 持续更新中
+
+[Choose a lab](#choose-a-lab) · [Explore the roadmap](#learning-roadmap) · [Study notes](#study-notes) · [Quick start](#quick-start)
 
 Follow an agent from a simple room-cleaning policy to LLM tool decisions, external capabilities, context assembly, and plans that change after feedback. Each completed module pairs runnable Python with an experiment guide. The detailed guides and code comments are primarily in Chinese.
 
@@ -14,13 +14,48 @@ Follow an agent from a simple room-cleaning policy to LLM tool decisions, extern
 
 Follow **01 → 05** in order, or pick the topic you want to explore.
 
-| Step | Lab | Focus | Open |
-| :---: | --- | --- | --- |
-| **01** | 🧹 Agent fundamentals | Observe room state, choose and execute cleaning actions, then compare a simple policy with a minimum-cost policy across six rooms. | [Guide](00_agent_system_basics/README.md) · [Code](00_agent_system_basics/cleaning_agent.py) |
-| **02** | 📚 LLM agent loop | Trace the model's function-call requests, Python's tool execution, feedback to the model, and how instructions affect the loop. | [Guide](01_llm_agent_and_toolcalling/README.md) · [Code](01_llm_agent_and_toolcalling/agent_loop.py) |
-| **03** | 📱 Tool integration | Connect one virtual phone task through local Python functions, REST API, and MCP; inspect where each tool request travels. | [Guide](02_external_capabilities/README.md) · [Code](02_external_capabilities/agent.py) |
-| **04** | 🧠 Context & memory | Build a study assistant's model input from session history, saved preferences, and retrieved project guides; inspect the resulting context. | [Guide](03_context_session_memory_rag/README.md) · [Code](03_context_session_memory_rag/learning_agent.py) |
-| **05** | 🧩 Planning & skills | Discover and load a reusable Skill, plan a meeting, diagnose a calendar conflict and a failed reminder, then verify the repaired result. | [Guide](04_planning_reflection_skill/README.md) · [Code](04_planning_reflection_skill/agent.py) |
+<table align="center" width="92%">
+  <thead>
+    <tr>
+      <th align="center" width="8%">Step</th>
+      <th align="center" width="23%">Lab</th>
+      <th align="left" width="54%">Focus</th>
+      <th align="center" width="15%">Open</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="center">01</td>
+      <td align="center">🧹 Agent fundamentals</td>
+      <td>Observe room state, choose and execute cleaning actions, then compare a simple policy with a minimum-cost policy across six rooms.</td>
+      <td align="center"><a href="00_agent_system_basics/README.md">Guide</a> · <a href="00_agent_system_basics/cleaning_agent.py">Code</a></td>
+    </tr>
+    <tr>
+      <td align="center">02</td>
+      <td align="center">📚 LLM agent loop</td>
+      <td>Trace the model's function-call requests, Python's tool execution, feedback to the model, and how instructions affect the loop.</td>
+      <td align="center"><a href="01_llm_agent_and_toolcalling/README.md">Guide</a> · <a href="01_llm_agent_and_toolcalling/agent_loop.py">Code</a></td>
+    </tr>
+    <tr>
+      <td align="center">03</td>
+      <td align="center">📱 Tool integration</td>
+      <td>Connect one virtual phone task through local Python functions, REST API, and MCP; inspect where each tool request travels.</td>
+      <td align="center"><a href="02_external_capabilities/README.md">Guide</a> · <a href="02_external_capabilities/agent.py">Code</a></td>
+    </tr>
+    <tr>
+      <td align="center">04</td>
+      <td align="center">🧠 Context &amp; memory</td>
+      <td>Build a study assistant's model input from session history, saved preferences, and retrieved project guides; inspect the resulting context.</td>
+      <td align="center"><a href="03_context_session_memory_rag/README.md">Guide</a> · <a href="03_context_session_memory_rag/learning_agent.py">Code</a></td>
+    </tr>
+    <tr>
+      <td align="center">05</td>
+      <td align="center">🧩 Planning &amp; skills</td>
+      <td>Discover and load a reusable Skill, plan a meeting, diagnose a calendar conflict and a failed reminder, then verify the repaired result.</td>
+      <td align="center"><a href="04_planning_reflection_skill/README.md">Guide</a> · <a href="04_planning_reflection_skill/agent.py">Code</a></td>
+    </tr>
+  </tbody>
+</table>
 
 ## Learning Roadmap
 
