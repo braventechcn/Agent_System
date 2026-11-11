@@ -28,14 +28,16 @@ The roadmap numbers describe the learning sequence. The code directories use `00
 
 ## Study Notes
 
-The accompanying Notion notes provide the conceptual reading for these experiments. Open the relevant note before running a lab, then return to the code and traces to test the ideas.
+The accompanying Notion notes cover all six live modules. Open the relevant note before running a lab, then return to the code and traces to test the ideas.
 
-| Topic | Notion notes | Related lab |
+| Module | Study notes | Lab guide |
 | --- | --- | --- |
-| Agent fundamentals and LLM agents | [Read notes](https://sphenoid-rhodium-72f.notion.site/Agent-Agent-LLM-Agent-40d9d02716b6802682e9c9ed6b4ba43c) | [01](00_agent_system_basics/README.md) · [02](01_llm_agent_and_toolcalling/README.md) |
-| Tools, APIs, Function Calling, and MCP | [Read notes](https://sphenoid-rhodium-72f.notion.site/Agent-Agent-Tool-API-Function-Calling-MCP-4109d02716b680f4bb5cc93f9383b68f) | [03](02_external_capabilities/README.md) |
-| Context, Session, Memory, and RAG | [Read notes](https://sphenoid-rhodium-72f.notion.site/Agent-Agent-Context-Session-Memory-RAG-4109d02716b680a8a3f5c6482bf87564) | [04](03_context_session_memory_rag/README.md) |
-| Planning, Reflection, and Skill | [Read notes](https://sphenoid-rhodium-72f.notion.site/Agent-Agent-Planning-Reflection-Skill-4109d02716b680a68216c1bfb3f033da) | [05](04_planning_reflection_skill/README.md) |
+| 01 · Agent fundamentals | [Agent 基础 · Agent 与 LLM Agent](https://sphenoid-rhodium-72f.notion.site/Agent-Agent-LLM-Agent-40d9d02716b6802682e9c9ed6b4ba43c) | [Six-room cleaning agent](00_agent_system_basics/README.md) |
+| 02 · LLM agent loop | [Agent 基础 · Agent 与 LLM Agent](https://sphenoid-rhodium-72f.notion.site/Agent-Agent-LLM-Agent-40d9d02716b6802682e9c9ed6b4ba43c) | [Library agent](01_llm_agent_and_toolcalling/README.md) |
+| 03 · External capabilities | [Agent 基础 · Tool、API、Function Calling 与 MCP](https://sphenoid-rhodium-72f.notion.site/Agent-Agent-Tool-API-Function-Calling-MCP-4109d02716b680f4bb5cc93f9383b68f) | [Virtual phone](02_external_capabilities/README.md) |
+| 04 · Context and memory | [Agent 基础 · Context、Session、Memory 与 RAG](https://sphenoid-rhodium-72f.notion.site/Agent-Agent-Context-Session-Memory-RAG-4109d02716b680a8a3f5c6482bf87564) | [Study assistant](03_context_session_memory_rag/README.md) |
+| 05 · Planning and skills | [Agent 基础 · Planning、Reflection 与 Skill](https://sphenoid-rhodium-72f.notion.site/Agent-Agent-Planning-Reflection-Skill-4109d02716b680a68216c1bfb3f033da) | [Virtual meeting](04_planning_reflection_skill/README.md) |
+| 06 · Harness and task runtime | [Agent 基础 · Harness 与任务运行机制](https://sphenoid-rhodium-72f.notion.site/Agent-Harness-4139d02716b68084925ffe5251428ac7?source=copy_link) | [Research sprint desk](05_harness/README.md) |
 
 Notion controls access to these pages. Repository links do not change their sharing permissions; readers need the pages to be published or shared with them.
 
