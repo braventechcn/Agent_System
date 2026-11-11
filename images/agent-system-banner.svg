@@ -49,7 +49,7 @@
   <rect x="1199" y="140" width="13" height="41" rx="6" fill="#8eafff"/>
 
   <rect x="1006" y="275" width="238" height="42" rx="21" fill="#13244e" stroke="#91a8f0" stroke-opacity="0.5"/>
-  <text x="1030" y="303" fill="#eaf3ff" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">6 / 7 MODULES LIVE</text>
+  <text x="1030" y="303" fill="#eaf3ff" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">7 / 7 MODULES LIVE</text>
   <g transform="translate(1256 292)">
     <circle cx="0" cy="0" r="8" fill="#63e8ff"/>
     <circle cx="21" cy="0" r="8" fill="#86c8ff"/>
@@ -57,6 +57,6 @@
     <circle cx="63" cy="0" r="8" fill="#cb91f6"/>
     <circle cx="84" cy="0" r="8" fill="#e5a3fa"/>
     <circle cx="105" cy="0" r="8" fill="#f6b4e8"/>
-    <circle cx="126" cy="0" r="8" fill="none" stroke="#9babe4" stroke-width="2"/>
+    <circle cx="126" cy="0" r="8" fill="#ffcf8b"/>
   </g>
 </svg>

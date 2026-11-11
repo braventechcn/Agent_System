@@ -2,6 +2,7 @@
 
 import tempfile
 import unittest
+import json
 from pathlib import Path
 
 from harness import DEFAULT_DAY, Harness
@@ -83,6 +84,57 @@ class HarnessTests(unittest.TestCase):
         snapshot["day"]["slots"][0]["busy"] = True
         self.assertEqual(assignments, [])
         self.assertFalse(day["slots"][0]["busy"])
+
+    def test_task_run_turn_step_and_state_machine(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            runs = Path(tmp)
+            first = Harness.start(DEFAULT_DAY, runs, "demo", fail_once=False, trace=False)
+            second = Harness.start(DEFAULT_DAY, runs, "demo", fail_once=False, trace=False)
+            self.assertEqual(first.state["task_id"], second.state["task_id"])
+            self.assertNotEqual(first.state["run_id"], second.state["run_id"])
+            first.run(max_decisions=1)
+            events = [json.loads(line) for line in (first.folder / "events.jsonl").read_text().splitlines()]
+            turn_one = [row for row in events if row["turn"] == 1]
+            self.assertEqual([row["step"] for row in turn_one], list(range(1, len(turn_one) + 1)))
+            self.assertEqual(turn_one[0]["kind"], "observation")
+            self.assertEqual(turn_one[-1]["kind"], "turn_finished")
+            with self.assertRaises(ValueError):
+                first._transition("completed", "skip_verification")
+
+    def test_replayed_tool_action_is_idempotent(self):
+        from workspace import load_day
+
+        day = load_day(DEFAULT_DAY)
+        assignments = []
+        self.assertTrue(schedule_focus(day, assignments, "eval", "09:00")["ok"])
+        replay = schedule_focus(day, assignments, "eval", "09:00")
+        self.assertTrue(replay["already_applied"])
+        self.assertEqual(len(assignments), 1)
+
+    def test_cancel_is_terminal_but_pause_can_resume(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            runs = Path(tmp)
+            harness = Harness.start(DEFAULT_DAY, runs, "demo", fail_once=False, trace=False)
+            harness.run(max_decisions=1)
+            cancelled = Harness.cancel(harness.state["run_id"], runs, trace=False)
+            self.assertEqual(cancelled.state["status"], "cancelled")
+            self.assertIn("cancelled", (cancelled.folder / "daily_plan.md").read_text())
+            with self.assertRaises(ValueError):
+                Harness.resume(harness.state["run_id"], runs, trace=False)
+
+    def test_old_checkpoint_can_resume(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            runs = Path(tmp)
+            harness = Harness.start(DEFAULT_DAY, runs, "demo", fail_once=False, trace=False)
+            harness.run(max_decisions=1)
+            path = harness.folder / "checkpoint.json"
+            state = json.loads(path.read_text(encoding="utf-8"))
+            for key in ("task_id", "turn_number", "step_number"):
+                del state[key]
+            path.write_text(json.dumps(state), encoding="utf-8")
+            resumed = Harness.resume(harness.state["run_id"], runs, trace=False)
+            self.assertEqual(resumed.state["task_id"], harness.state["task_id"])
+            self.assertTrue(resumed.run()["verification"]["success"])
 
 
 if __name__ == "__main__":

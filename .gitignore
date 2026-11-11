@@ -40,3 +40,6 @@ Thumbs.db
 # Harness 的检查点、事件日志和个人冲刺计划
 05_harness/.runs/
 05_harness/my_day.json
+
+# 可靠性评估生成的运行记录与报告
+06_evaluation_reliability/.runs/

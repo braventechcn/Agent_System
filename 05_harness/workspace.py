@@ -1,4 +1,4 @@
-"""冲刺台的业务环境：读取待办，检查安排，并生成可执行的日程。
+"""每日专注规划师的业务环境：读取待办，检查安排，并生成可执行的日程。
 
 这个文件不知道 LLM 或 Harness 的运行轮次。它只处理“某任务能否放进某时段”
 这样的业务事实。Harness 会调用这里的函数，并把执行结果反馈给 Agent。
@@ -49,6 +49,10 @@ def schedule_focus(day: dict, assignments: list[dict], task_id: str, slot_id: st
     slot = slots.get(slot_id)
     if task is None or slot is None:
         return {"error": "UNKNOWN_ID", "detail": "任务或时段不存在"}
+    # 同一操作重复送达时返回原有结果，不再新增一条安排。这是本地幂等示范。
+    if any(item["task_id"] == task_id and item["slot_id"] == slot_id
+           for item in assignments):
+        return {"ok": True, "task_id": task_id, "slot_id": slot_id, "already_applied": True}
     if slot["busy"] or any(item["slot_id"] == slot_id for item in assignments):
         return {"error": "SLOT_BUSY", "detail": f"{slot_id} 已被占用"}
     if sum(item["task_id"] == task_id for item in assignments) >= task["blocks"]:
@@ -90,7 +94,7 @@ def make_brief(day: dict, assignments: list[dict], status: str, verification: di
     """生成真正能带去学习或工作的 Markdown 专注清单。"""
     tasks = {task["id"]: task for task in day["tasks"]}
     booked = {item["slot_id"]: item["task_id"] for item in assignments}
-    lines = [f"# {day['day']} · 研究与工作冲刺台", "", day["theme"], "",
+    lines = [f"# {day['day']} · 每日专注规划师", "", day["theme"], "",
              f"运行状态：**{status}**；已安排 {verification['scheduled_blocks']}/"
              f"{verification['required_blocks']} 个专注块。", "", "## 今日时间线", ""]
     for slot in day["slots"]:
