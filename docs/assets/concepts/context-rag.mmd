@@ -6,3 +6,11 @@ flowchart LR
     R -->|relevant passages + sources| B
     B -->|this call's context| L["LLM"]
     %% Storage and retrieval alone do not make information visible to the model.
+    classDef source fill:#28395f,stroke:#9bb8f8,color:#ffffff,stroke-width:2px
+    classDef retrieve fill:#16545a,stroke:#67e3d1,color:#ffffff,stroke-width:2px
+    classDef builder fill:#1d4882,stroke:#87c0ff,color:#ffffff,stroke-width:2px
+    classDef model fill:#513c87,stroke:#c6a7ff,color:#ffffff,stroke-width:2px
+    class Q,S,M,D source
+    class R retrieve
+    class B builder
+    class L model

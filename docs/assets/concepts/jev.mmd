@@ -4,3 +4,13 @@ flowchart LR
     G -->|threshold met| N["Proposed next step<br/>not yet executed"]
     G -->|uncertain| L["LLM decides"]
     %% The threshold and fallback policy are design choices to evaluate.
+    classDef input fill:#28395f,stroke:#9bb8f8,color:#ffffff,stroke-width:2px
+    classDef jev fill:#513c87,stroke:#c6a7ff,color:#ffffff,stroke-width:2px
+    classDef gate fill:#1d4882,stroke:#87c0ff,color:#ffffff,stroke-width:2px
+    classDef next fill:#16545a,stroke:#67e3d1,color:#ffffff,stroke-width:2px
+    classDef fallback fill:#6c451d,stroke:#ffc47b,color:#ffffff,stroke-width:2px
+    class O input
+    class J jev
+    class G gate
+    class N next
+    class L fallback

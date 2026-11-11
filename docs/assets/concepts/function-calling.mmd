@@ -1,13 +1,21 @@
-sequenceDiagram
-    actor User
-    participant Runtime as Agent Runtime
-    participant LLM
-    participant Tool as Python Tool
-    User->>Runtime: Ask about a book
-    Runtime->>LLM: User input + tool definitions
-    LLM-->>Runtime: function_call(name, arguments, call_id)
-    Note over Runtime: Parse, validate, and authorize
-    Runtime->>Tool: Execute approved function
-    Tool-->>Runtime: Actual result or error
-    Runtime->>LLM: function_call_output(same call_id, result)
-    LLM-->>Runtime: Another call or final answer
+flowchart LR
+    subgraph D["1 · Model decision"]
+      direction TB
+      I["User input + tool schemas"] --> L["LLM API"] --> C["function_call<br/>name · arguments · call_id"]
+    end
+    subgraph X["2 · Python execution"]
+      direction TB
+      R["Agent runtime<br/>validate + dispatch"] --> T["Python tool<br/>actually executes"] --> O["function_call_output<br/>same call_id + result"]
+    end
+    D -->|tool request| X
+    X -->|tool result| N["3 · Next LLM API call<br/>answer or another tool request"]
+    classDef input fill:#28395f,stroke:#9bb8f8,color:#ffffff,stroke-width:2px
+    classDef model fill:#513c87,stroke:#c6a7ff,color:#ffffff,stroke-width:2px
+    classDef payload fill:#6c451d,stroke:#ffc47b,color:#ffffff,stroke-width:2px
+    classDef runtime fill:#1d4882,stroke:#87c0ff,color:#ffffff,stroke-width:2px
+    classDef tool fill:#16545a,stroke:#67e3d1,color:#ffffff,stroke-width:2px
+    class I input
+    class L,N model
+    class C,O payload
+    class R runtime
+    class T tool

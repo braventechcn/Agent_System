@@ -106,8 +106,8 @@
     .note.pending .arrow { color: #8d98aa; }
     .concepts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
     .concept { display: flex; flex-direction: column; padding: 21px; background: #fff; border: 1px solid var(--line); border-radius: 15px; }
-    .concept-visual { display: block; margin-bottom: 18px; border-radius: 12px; }
-    .concept img { display: block; width: 100%; height: auto; border-radius: 12px; background: #101a35; }
+    .concept-visual { display: block; height: 210px; margin-bottom: 18px; border-radius: 12px; background: #101a35; overflow: hidden; }
+    .concept img { display: block; width: 100%; height: 100%; object-fit: contain; border-radius: 12px; }
     .concept h3 { font-size: 1rem; margin-bottom: 7px; }
     .concept p { color: var(--muted); font-size: .87rem; margin-bottom: 11px; }
     .concept p.zh { color: #3f4e68; }
@@ -186,7 +186,7 @@
       <div class="hero-inner wrap">
         <div>
           <span class="eyebrow">Learn · Build · Trace</span>
-          <h1>Agent systems,<br><span class="gradient">made visible.</span></h1>
+          <h1>Agent Systems<br><span class="gradient">Learning Lab</span></h1>
           <p>Follow a request across the model, Python tools, and the next model call. Seven runnable Python labs take you from Agent fundamentals to a daily planner and reliability evaluation.</p>
           <div class="actions">
             <a class="button primary" href="#labs">Explore the labs →</a>
@@ -247,7 +247,7 @@
     <section id="concepts" class="section wrap">
       <div class="section-head">
         <div><div class="section-kicker">03 / The ideas</div><h2>Concepts at a glance</h2></div>
-        <p>Visual explanations of the mechanisms you can inspect in the labs. Open a diagram for a larger view; editable Mermaid sources sit beside the SVG files in the repository.</p>
+        <p>These diagrams are rendered from <a href="https://github.com/braventechcn/Agent_System/tree/main/docs/assets/concepts">editable Mermaid sources</a>. Open any diagram for a larger view; the color groups distinguish decisions, runtime, tools, and results.</p>
       </div>
       <div class="concepts">
         <article class="concept">

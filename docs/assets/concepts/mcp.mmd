@@ -1,7 +1,12 @@
 flowchart LR
     subgraph Host["MCP Host / Agent application"]
-        L["LLM<br/>chooses tool"] --> R["Agent Runtime<br/>routes request"]
-        R --> C["MCP Client<br/>protocol connection"]
+        A["LLM + Agent Runtime<br/>choose and route"] --> C["MCP Client<br/>protocol connection"]
     end
     C <-->|"tools/list · tools/call · result"| S["MCP Server<br/>exposes capabilities"]
     S <-->|"business request / result"| API["Business API or local function"]
+    classDef runtime fill:#1d4882,stroke:#87c0ff,color:#ffffff,stroke-width:2px
+    classDef protocol fill:#16545a,stroke:#67e3d1,color:#ffffff,stroke-width:2px
+    classDef business fill:#6c451d,stroke:#ffc47b,color:#ffffff,stroke-width:2px
+    class A runtime
+    class C,S protocol
+    class API business

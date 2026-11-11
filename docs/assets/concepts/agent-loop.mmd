@@ -1,5 +1,11 @@
 flowchart LR
-    E["Environment state<br/>环境状态"] -->|observation / 观察| A["Agent<br/>decides an action"]
-    A -->|proposed action / 候选动作| R["Runtime<br/>validates and executes"]
-    R -->|real effect / 实际执行| E
-    E -. new state becomes the next observation .-> A
+    E["Environment<br/>环境状态"] -->|observe / 观察| A["Agent<br/>decide / 决策"]
+    A -->|proposed action / 候选动作| H["Runtime<br/>执行动作"]
+    H -->|state change / 状态变化| E
+    H -.->|feedback / 执行反馈| A
+    classDef environment fill:#16545a,stroke:#67e3d1,color:#f4fffd,stroke-width:2px
+    classDef agent fill:#513c87,stroke:#c6a7ff,color:#ffffff,stroke-width:2px
+    classDef runtime fill:#1d4882,stroke:#87c0ff,color:#ffffff,stroke-width:2px
+    class E environment
+    class A agent
+    class H runtime

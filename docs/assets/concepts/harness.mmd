@@ -1,10 +1,10 @@
-flowchart TB
+flowchart LR
     subgraph Task["Task · goal and scope"]
         subgraph Run["Run · one execution or resume boundary"]
+            Guard["Policy, budget, tool guard"]
             subgraph Turn["Turn · one decision cycle"]
                 Step["Step · recorded decision or tool event"]
             end
-            Guard["Policy, budget, tool guard"]
             Trace["Trace · what happened"]
             Checkpoint["Checkpoint · where to resume"]
             Verify["Verifier · whether goal is met"]
@@ -14,3 +14,11 @@ flowchart TB
     Step --> Trace
     Step --> Checkpoint
     Step --> Verify
+    classDef guard fill:#6c451d,stroke:#ffc47b,color:#ffffff,stroke-width:2px
+    classDef step fill:#513c87,stroke:#c6a7ff,color:#ffffff,stroke-width:2px
+    classDef record fill:#1d4882,stroke:#87c0ff,color:#ffffff,stroke-width:2px
+    classDef verify fill:#16545a,stroke:#67e3d1,color:#ffffff,stroke-width:2px
+    class Guard guard
+    class Step step
+    class Trace,Checkpoint record
+    class Verify verify
