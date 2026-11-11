@@ -3,10 +3,10 @@
 </p>
 
 <p align="center"><strong>Build an agent. Watch it decide. Trace what actually runs.</strong></p>
-<p align="center">🧪 5 runnable labs &nbsp;·&nbsp; 🧭 7-module roadmap &nbsp;·&nbsp; 🔄 Actively updated / 持续更新中</p>
+<p align="center">🧪 6 runnable labs &nbsp;·&nbsp; 🧭 7-module roadmap &nbsp;·&nbsp; 🔄 Actively updated / 持续更新中</p>
 <p align="center"><a href="#learning-roadmap">Learning roadmap</a> · <a href="#study-notes">Study notes</a> · <a href="#choose-a-lab">Choose a lab</a> · <a href="#inside-the-live-labs">Inside the labs</a> · <a href="#quick-start">Quick start</a></p>
 
-Explore agent systems through five runnable Python labs, from a six-room cleaner to a meeting planner that revises its plan after tool feedback. The detailed guides and code comments are primarily in Chinese.
+Explore agent systems through six runnable Python labs, from a six-room cleaner to a research sprint desk with a resumable Harness. The detailed guides and code comments are primarily in Chinese.
 
 ## Learning Roadmap
 
@@ -21,10 +21,10 @@ The roadmap starts with the agent–environment loop: **observe → decide → a
 | 03 | 📱 Tools, APIs, function calling, and MCP | Three ways to connect the same virtual phone capabilities: local Python functions, REST API, and MCP. | [Guide](02_external_capabilities/README.md) · [Main code](02_external_capabilities/agent.py) | 🟢 Live |
 | 04 | 🧠 Context, sessions, memory, and RAG | Build context from persisted sessions, selected memories, and retrieved project documentation. | [Guide](03_context_session_memory_rag/README.md) · [Main code](03_context_session_memory_rag/learning_agent.py) | 🟢 Live |
 | 05 | 🧩 Planning, reflection, and skills | Discover and load a reusable procedure, plan a meeting, revise after a conflict, and repair a failed reminder. | [Guide](04_planning_reflection_skill/README.md) · [Main code](04_planning_reflection_skill/agent.py) · [Skill](04_planning_reflection_skill/skills/schedule-meeting/SKILL.md) | 🟢 Live |
-| 06 | ⚙️ Harness and task runtime | Coordinating execution, state, limits, and monitoring around an agent. | — | 🟣 Planned |
+| 06 | ⚙️ Harness and task runtime | Schedule a research and AI workday with bounded decisions, guarded tool execution, retry, event logs, checkpoints, and independent verification. | [Guide](05_harness/README.md) · [Main code](05_harness/harness.py) | 🟢 Live |
 | 07 | 🛡️ Verification, evaluation, and reliability | Checking outcomes, measuring performance, handling failures, and improving robustness. | — | 🟣 Planned |
 
-The roadmap numbers describe the learning sequence. The code directories use `00` through `04`; the entry points above lead to their guides and main scripts.
+The roadmap numbers describe the learning sequence. The code directories use `00` through `05`; the entry points above lead to their guides and main scripts.
 
 ## Study Notes
 
@@ -41,7 +41,7 @@ Notion controls access to these pages. Repository links do not change their shar
 
 ## Choose a lab
 
-Follow **01 → 05** in order, or pick the topic you want to explore.
+Follow **01 → 06** in order, or pick the topic you want to explore.
 
 <table align="center" width="92%">
   <thead>
@@ -83,6 +83,12 @@ Follow **01 → 05** in order, or pick the topic you want to explore.
       <td>Discover and load a reusable Skill, plan a meeting, diagnose a calendar conflict and a failed reminder, then verify the repaired result.</td>
       <td align="center"><a href="04_planning_reflection_skill/README.md">Guide</a> · <a href="04_planning_reflection_skill/agent.py">Code</a></td>
     </tr>
+    <tr>
+      <td align="center">06</td>
+      <td align="center">⚙️ Agent Harness</td>
+      <td>Build a useful research sprint plan while the runtime validates actions, limits work, retries a temporary failure, records events, and resumes from a checkpoint.</td>
+      <td align="center"><a href="05_harness/README.md">Guide</a> · <a href="05_harness/harness.py">Code</a></td>
+    </tr>
   </tbody>
 </table>
 
@@ -108,12 +114,15 @@ The [study assistant](03_context_session_memory_rag/README.md) retrieves passage
 
 The [virtual meeting lab](04_planning_reflection_skill/README.md) turns a scheduling goal into an explicit plan, injects a calendar conflict and a reminder failure, and traces how feedback changes the next action. Its [sample Skill](04_planning_reflection_skill/skills/schedule-meeting/SKILL.md) exposes a short name and description for discovery, then loads the meeting procedure only when it applies. The Skill guides decisions; Python still executes calendar operations and verifies the saved result. Compare a reproducible offline run with an optional real LLM planner.
 
+### ⚙️ 06 · Harness and task runtime
+
+The [research sprint desk](05_harness/README.md) turns a graduate student's and AI engineer's tasks into a daily focus plan. Its Harness keeps the agent's decisions separate from execution, enforces budgets and business rules, retries a temporary tool failure, logs each step, and resumes after a pause. The generated Markdown brief is useful beyond the experiment; an optional LLM can replace the deterministic decider without changing the runtime.
+
 ## Coming next
 
-- **⚙️ 06 · Harness and runtime:** Put the agent inside a controlled execution loop with explicit state, limits, logs, and monitoring so a complete run can be inspected and reproduced.
 - **🛡️ 07 · Evaluation and reliability:** Define success criteria, build repeatable test cases, and study incorrect tool use, recovery, and self-correction across varied inputs.
 
-These are planned learning objectives, not completed experiments. New code and guides will appear here as each module is built.
+This is a planned learning objective, not a completed experiment. New code and a guide will appear here when the module is built.
 
 ## Quick start
 
@@ -141,3 +150,11 @@ To explore Planning, Reflection, and Skill without an API call, run:
 ```
 
 The [module guide](04_planning_reflection_skill/README.md) shows how to compare the initial plan, reflection, Skill loading, and the real LLM mode.
+
+To build a local research sprint plan and inspect a resumable Harness, run:
+
+```bash
+.venv/bin/python 05_harness/harness.py start --fail-once
+```
+
+The [Harness guide](05_harness/README.md) explains the generated brief, event log, checkpoint, and optional LLM mode.

@@ -1,0 +1,18 @@
+{
+  "day": "2026-11-11",
+  "theme": "研究生与 AI 工程师的一天：读论文、跑实验、准备团队分享",
+  "slots": [
+    {"id": "09:00", "label": "09:00–10:00", "busy": false},
+    {"id": "10:00", "label": "10:00–11:00", "busy": false},
+    {"id": "11:00", "label": "11:00–12:00", "busy": true, "event": "组会"},
+    {"id": "14:00", "label": "14:00–15:00", "busy": false},
+    {"id": "15:00", "label": "15:00–16:00", "busy": false},
+    {"id": "16:00", "label": "16:00–17:00", "busy": false}
+  ],
+  "tasks": [
+    {"id": "paper", "title": "精读 Agent 评估论文并记下三个可复用观点", "deadline": "2026-11-11", "priority": 3, "blocks": 1, "depends_on": []},
+    {"id": "eval", "title": "跑一次 Agent 工具调用的回归评估", "deadline": "2026-11-11", "priority": 5, "blocks": 2, "depends_on": []},
+    {"id": "brief", "title": "整理评估结果，写给导师和团队的简短汇报", "deadline": "2026-11-12", "priority": 4, "blocks": 1, "depends_on": ["eval"]},
+    {"id": "demo", "title": "准备周会的 Harness 演示与失败案例", "deadline": "2026-11-13", "priority": 2, "blocks": 1, "depends_on": []}
+  ]
+}

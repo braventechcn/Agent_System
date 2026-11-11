@@ -36,3 +36,7 @@ Thumbs.db
 # 本地实验数据文件
 *.sqlite3
 *.db
+
+# Harness 的检查点、事件日志和个人冲刺计划
+05_harness/.runs/
+05_harness/my_day.json
