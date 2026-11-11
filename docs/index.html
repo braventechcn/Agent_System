@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A hands-on learning lab for agent systems: six Python experiments, study notes, and a seven-module roadmap.">
+  <meta name="theme-color" content="#101933">
+  <title>Agent System Learning Lab</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #16233d;
+      --muted: #59677e;
+      --line: #dce5f3;
+      --blue: #315bd6;
+      --cyan: #16a9c7;
+      --violet: #8253d7;
+      --surface: #ffffff;
+      --shadow: 0 16px 45px rgba(24, 49, 103, .09);
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: #f6f8fd; color: var(--ink); line-height: 1.65; }
+    a { color: var(--blue); text-underline-offset: 3px; }
+    a:hover { color: #1d409e; }
+    a:focus-visible { outline: 3px solid #ffca70; outline-offset: 4px; border-radius: 4px; }
+    .wrap { width: min(1160px, calc(100% - 40px)); margin-inline: auto; }
+    .topbar { position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,.94); border-bottom: 1px solid var(--line); backdrop-filter: blur(12px); }
+    .nav { min-height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+    .brand { font-weight: 800; font-size: 1rem; letter-spacing: -.025em; color: var(--ink); text-decoration: none; white-space: nowrap; }
+    .brand span { color: var(--violet); }
+    .navlinks { display: flex; align-items: center; flex-wrap: wrap; justify-content: flex-end; gap: 8px 22px; }
+    .navlinks a { color: #344564; text-decoration: none; font-size: .91rem; font-weight: 600; }
+    .navlinks a:hover { color: var(--blue); }
+    .hero { background: radial-gradient(circle at 82% 14%, #283f89 0, transparent 34%), linear-gradient(130deg, #101a38, #151e50 57%, #392073); color: #fff; overflow: hidden; }
+    .hero-inner { padding: 84px 0 92px; display: grid; grid-template-columns: 1.2fr .8fr; gap: 50px; align-items: center; }
+    .eyebrow { display: inline-block; margin-bottom: 20px; color: #8ce9fa; letter-spacing: .19em; text-transform: uppercase; font-size: .74rem; font-weight: 800; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { font-size: clamp(2.8rem, 6vw, 5.3rem); letter-spacing: -.065em; line-height: 1.05; margin-bottom: 24px; }
+    .gradient { background: linear-gradient(90deg, #63ddf5, #bca4ff 70%, #f2a1d9); background-clip: text; color: transparent; }
+    .hero p { max-width: 630px; color: #d7e2ff; font-size: clamp(1.04rem, 1.7vw, 1.2rem); }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .button { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 10px 18px; border: 1px solid transparent; border-radius: 12px; font-weight: 700; text-decoration: none; transition: transform .15s ease, background .15s ease; }
+    .button:hover { transform: translateY(-2px); }
+    .button.primary { background: #8deafa; color: #0b2651; }
+    .button.secondary { border-color: #6680b7; color: #fff; background: rgba(255,255,255,.07); }
+    .button.secondary:hover { background: rgba(255,255,255,.16); color: #fff; }
+    .hero-art { padding: 15px; border: 1px solid rgba(163,188,255,.25); border-radius: 22px; background: rgba(255,255,255,.055); box-shadow: 0 20px 70px rgba(1,8,30,.26); }
+    .hero-art img { display: block; width: 100%; border-radius: 11px; }
+    .hero-art p { margin: 14px 4px 0; font-size: .84rem; text-align: center; color: #b7c9ec; }
+    .stats { display: flex; flex-wrap: wrap; gap: 18px 30px; padding: 22px 0; color: #425371; font-size: .94rem; font-weight: 650; }
+    section { scroll-margin-top: 85px; }
+    .section { padding: 68px 0 12px; }
+    .section-head { display: flex; justify-content: space-between; gap: 20px; align-items: end; margin-bottom: 24px; }
+    .section-head h2 { margin-bottom: 4px; font-size: clamp(1.7rem, 3vw, 2.3rem); letter-spacing: -.04em; }
+    .section-head p { margin-bottom: 0; color: var(--muted); max-width: 710px; }
+    .section-kicker { color: var(--blue); font-size: .78rem; text-transform: uppercase; letter-spacing: .16em; font-weight: 800; margin-bottom: 7px; }
+    .roadmap-frame { padding: 14px; border: 1px solid var(--line); background: #fff; border-radius: 18px; box-shadow: var(--shadow); }
+    .roadmap-frame img { display: block; width: 100%; height: auto; border-radius: 9px; }
+    .roadmap-caption { color: var(--muted); font-size: .9rem; margin: 15px 2px 0; }
+    .cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+    .card { display: flex; flex-direction: column; min-height: 290px; padding: 26px; background: var(--surface); border: 1px solid var(--line); border-radius: 18px; box-shadow: var(--shadow); }
+    .card .number { display: inline-grid; place-items: center; width: 40px; height: 40px; margin-bottom: 18px; border-radius: 12px; background: #e8f2ff; color: #2857ad; font-weight: 800; }
+    .card:nth-child(3n+2) .number { background: #f0eaff; color: #7547bc; }
+    .card:nth-child(3n) .number { background: #e3f7f5; color: #087a80; }
+    .card h3 { font-size: 1.16rem; line-height: 1.3; letter-spacing: -.02em; margin-bottom: 12px; }
+    .card p { color: var(--muted); font-size: .94rem; margin-bottom: 22px; }
+    .card-links { margin-top: auto; display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: .9rem; font-weight: 750; }
+    .notes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+    .note { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 18px 21px; border: 1px solid var(--line); border-radius: 14px; background: #fff; text-decoration: none; color: var(--ink); box-shadow: 0 7px 20px rgba(24,49,103,.04); }
+    .note:hover { border-color: #9cb9ec; color: var(--blue); }
+    .note small { display: block; color: var(--muted); font-size: .78rem; font-weight: 700; }
+    .note strong { display: block; font-size: .95rem; }
+    .note .arrow { font-size: 1.3rem; color: var(--blue); }
+    .panel { padding: 30px; border: 1px solid #cddaf2; background: linear-gradient(135deg, #edf5ff, #f5efff); border-radius: 20px; }
+    .panel h3 { font-size: 1.3rem; margin-bottom: 6px; }
+    .panel p { color: #4d5c77; }
+    pre { overflow-x: auto; margin: 18px 0 0; padding: 18px 22px; border-radius: 13px; background: #101a35; color: #e2efff; font: .87rem/1.7 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    .foot { margin-top: 78px; padding: 28px 0 40px; border-top: 1px solid var(--line); color: var(--muted); font-size: .9rem; }
+    .foot-inner { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .foot p { margin: 0; }
+    @media (max-width: 850px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 28px; padding: 62px 0 66px; }
+      .hero-art { max-width: 650px; }
+      .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 600px) {
+      .wrap { width: min(100% - 28px, 1160px); }
+      .nav { align-items: flex-start; flex-direction: column; padding: 13px 0; gap: 8px; }
+      .navlinks { justify-content: flex-start; gap: 6px 16px; }
+      .section { padding-top: 52px; }
+      .cards, .notes { grid-template-columns: 1fr; }
+      .card { min-height: 0; }
+      .section-head { display: block; }
+      .stats { gap: 8px 20px; }
+      .panel { padding: 23px 18px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .button { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav wrap" aria-label="Main navigation">
+      <a class="brand" href="#top">Agent System <span>Learning Lab</span></a>
+      <div class="navlinks">
+        <a href="#roadmap">Roadmap</a>
+        <a href="#labs">Labs</a>
+        <a href="#notes">Study notes</a>
+        <a href="#start">Get started</a>
+        <a href="https://github.com/braventechcn/Agent_System">GitHub ↗</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <div class="hero">
+      <div class="hero-inner wrap">
+        <div>
+          <span class="eyebrow">Learn · Build · Trace</span>
+          <h1>Agent System<br><span class="gradient">Learning Lab</span></h1>
+          <p>Build an agent. Watch it decide. Trace what actually runs. Six hands-on Python labs connect agent fundamentals to a resumable task Harness.</p>
+          <div class="actions">
+            <a class="button primary" href="#labs">Explore the labs →</a>
+            <a class="button secondary" href="https://github.com/braventechcn/Agent_System">View repository ↗</a>
+          </div>
+        </div>
+        <div class="hero-art">
+          <img src="assets/agent-system-banner.svg" alt="Agent System Learning Lab: observe, decide, act, and feedback">
+          <p>Observe → Decide → Act → Feedback</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="stats wrap" aria-label="Project status">
+      <span>🧪 6 runnable labs</span><span>🧭 7-module roadmap</span><span>🔄 Actively updated / 持续更新中</span>
+    </div>
+
+    <section id="roadmap" class="section wrap">
+      <div class="section-head">
+        <div><div class="section-kicker">01 / Learning path</div><h2>Learning roadmap</h2></div>
+        <p>Start with the agent–environment loop. Then connect tools, manage information, plan work, and bring it together in a Harness. Evaluation and reliability are next.</p>
+      </div>
+      <div class="roadmap-frame">
+        <img src="assets/learning-roadmap.jpg" alt="Seven-part Agent learning roadmap showing the observe–decide–act–feedback loop and modules for tools, context, planning, Harness, and evaluation" loading="lazy">
+      </div>
+      <p class="roadmap-caption">The diagram is a learning map. Modules 03–05 are complementary capabilities, not a strict dependency chain.</p>
+    </section>
+
+    <section id="labs" class="section wrap">
+      <div class="section-head">
+        <div><div class="section-kicker">02 / Practice</div><h2>Choose a lab</h2></div>
+        <p>Each lab has runnable code and a detailed Chinese guide. Follow the sequence or jump to the concept you want to inspect.</p>
+      </div>
+      <div class="cards">
+        <article class="card"><span class="number">01</span><h3>🧹 Agent fundamentals</h3><p>Separate decisions from environment execution. Compare cleaning policies and action costs across six rooms.</p><div class="card-links"><a href="https://github.com/braventechcn/Agent_System/tree/main/00_agent_system_basics">Guide and code ↗</a></div></article>
+        <article class="card"><span class="number">02</span><h3>📚 LLM agent loop</h3><p>Inspect function-call requests, Python tool execution, feedback to the model, and instruction experiments.</p><div class="card-links"><a href="https://github.com/braventechcn/Agent_System/tree/main/01_llm_agent_and_toolcalling">Guide and code ↗</a><a href="https://github.com/braventechcn/Agent_System/blob/main/01_llm_agent_and_toolcalling/instruction_tool_choice_report.md">Trace report ↗</a></div></article>
+        <article class="card"><span class="number">03</span><h3>📱 External capabilities</h3><p>Connect one virtual phone task through local functions, REST API, and MCP; trace each request path.</p><div class="card-links"><a href="https://github.com/braventechcn/Agent_System/tree/main/02_external_capabilities">Guide and code ↗</a></div></article>
+        <article class="card"><span class="number">04</span><h3>🧠 Context and memory</h3><p>Assemble model context from session history, saved preferences, and retrieved project guides.</p><div class="card-links"><a href="https://github.com/braventechcn/Agent_System/tree/main/03_context_session_memory_rag">Guide and code ↗</a></div></article>
+        <article class="card"><span class="number">05</span><h3>🧩 Planning and skills</h3><p>Discover a reusable Skill, plan a meeting, reflect on failures, and repair the resulting plan.</p><div class="card-links"><a href="https://github.com/braventechcn/Agent_System/tree/main/04_planning_reflection_skill">Guide and code ↗</a></div></article>
+        <article class="card"><span class="number">06</span><h3>⚙️ Agent Harness</h3><p>Build a research sprint plan with guarded execution, budgets, retries, event logs, and checkpoints.</p><div class="card-links"><a href="https://github.com/braventechcn/Agent_System/tree/main/05_harness">Guide and code ↗</a></div></article>
+      </div>
+    </section>
+
+    <section id="notes" class="section wrap">
+      <div class="section-head">
+        <div><div class="section-kicker">03 / Reading</div><h2>Study notes</h2></div>
+        <p>Conceptual notes accompany the experiments. The first note covers both Agent fundamentals and LLM agents. Notion page access follows its own sharing settings.</p>
+      </div>
+      <div class="notes">
+        <a class="note" href="https://sphenoid-rhodium-72f.notion.site/Agent-Agent-LLM-Agent-40d9d02716b6802682e9c9ed6b4ba43c"><span><small>Modules 01–02</small><strong>Agent and LLM Agent</strong></span><span class="arrow" aria-hidden="true">↗</span></a>
+        <a class="note" href="https://sphenoid-rhodium-72f.notion.site/Agent-Agent-Tool-API-Function-Calling-MCP-4109d02716b680f4bb5cc93f9383b68f"><span><small>Module 03</small><strong>Tool, API, Function Calling and MCP</strong></span><span class="arrow" aria-hidden="true">↗</span></a>
+        <a class="note" href="https://sphenoid-rhodium-72f.notion.site/Agent-Agent-Context-Session-Memory-RAG-4109d02716b680a8a3f5c6482bf87564"><span><small>Module 04</small><strong>Context, Session, Memory and RAG</strong></span><span class="arrow" aria-hidden="true">↗</span></a>
+        <a class="note" href="https://sphenoid-rhodium-72f.notion.site/Agent-Agent-Planning-Reflection-Skill-4109d02716b680a68216c1bfb3f033da"><span><small>Module 05</small><strong>Planning, Reflection and Skill</strong></span><span class="arrow" aria-hidden="true">↗</span></a>
+        <a class="note" href="https://sphenoid-rhodium-72f.notion.site/Agent-Harness-4139d02716b68084925ffe5251428ac7?source=copy_link"><span><small>Module 06</small><strong>Harness and task runtime / 任务运行机制</strong></span><span class="arrow" aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+
+    <section id="start" class="section wrap">
+      <div class="section-head"><div><div class="section-kicker">04 / Run it</div><h2>Get started locally</h2></div></div>
+      <div class="panel">
+        <h3>Start with a simple agent</h3>
+        <p>Clone the repository and run the six-room cleaning experiment. The LLM labs have separate setup steps in their guides.</p>
+        <pre><code>git clone https://github.com/braventechcn/Agent_System.git
+cd Agent_System
+python3 -m venv .venv
+.venv/bin/python 00_agent_system_basics/cleaning_agent.py</code></pre>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot"><div class="foot-inner wrap"><p>Agent System Learning Lab · Built for learning by running and tracing.</p><p><a href="https://github.com/braventechcn/Agent_System">Source on GitHub ↗</a> · Module 07: evaluation and reliability, planned.</p></div></footer>
+</body>
+</html>

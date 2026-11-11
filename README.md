@@ -4,6 +4,7 @@
 
 <p align="center"><strong>Build an agent. Watch it decide. Trace what actually runs.</strong></p>
 <p align="center">🧪 6 runnable labs &nbsp;·&nbsp; 🧭 7-module roadmap &nbsp;·&nbsp; 🔄 Actively updated / 持续更新中</p>
+<p align="center"><a href="https://braventechcn.github.io/Agent_System/"><strong>🌐 Open the learning portal</strong></a> · <a href="https://github.com/braventechcn/Agent_System"><strong>View source on GitHub</strong></a></p>
 <p align="center"><a href="#learning-roadmap">Learning roadmap</a> · <a href="#study-notes">Study notes</a> · <a href="#choose-a-lab">Choose a lab</a> · <a href="#inside-the-live-labs">Inside the labs</a> · <a href="#quick-start">Quick start</a></p>
 
 Explore agent systems through six runnable Python labs, from a six-room cleaner to a research sprint desk with a resumable Harness. The detailed guides and code comments are primarily in Chinese.
