@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="A hands-on learning lab for agent systems: seven Python experiments, study notes, and a seven-module roadmap.">
+  <meta name="description" content="Seven runnable Agent labs, an interactive decision trace, evolving study notes, and planned self-evolving, research rebuttal, and Jev decision-model projects.">
   <meta name="theme-color" content="#101933">
   <title>Agent System Learning Lab</title>
   <style>
@@ -33,11 +33,12 @@
     .navlinks { display: flex; align-items: center; flex-wrap: wrap; justify-content: flex-end; gap: 8px 22px; }
     .navlinks a { color: #344564; text-decoration: none; font-size: .91rem; font-weight: 600; }
     .navlinks a:hover { color: var(--blue); }
-    .hero { background: radial-gradient(circle at 82% 14%, #283f89 0, transparent 34%), linear-gradient(130deg, #101a38, #151e50 57%, #392073); color: #fff; overflow: hidden; }
-    .hero-inner { padding: 84px 0 92px; display: grid; grid-template-columns: 1.2fr .8fr; gap: 50px; align-items: center; }
+    .hero { position: relative; background: radial-gradient(circle at 83% 18%, rgba(112,84,225,.55) 0, transparent 34%), radial-gradient(circle at 12% 92%, rgba(16,179,209,.22) 0, transparent 35%), linear-gradient(130deg, #0d1836, #141d49 58%, #291859); color: #fff; overflow: hidden; }
+    .hero::before { content: ""; position: absolute; inset: 0; opacity: .13; background-image: linear-gradient(#8aa9fa 1px, transparent 1px), linear-gradient(90deg, #8aa9fa 1px, transparent 1px); background-size: 48px 48px; mask-image: linear-gradient(90deg, transparent, #000); pointer-events: none; }
+    .hero-inner { position: relative; padding: 86px 0 94px; display: grid; grid-template-columns: 1.05fr .95fr; gap: 52px; align-items: center; }
     .eyebrow { display: inline-block; margin-bottom: 20px; color: #8ce9fa; letter-spacing: .19em; text-transform: uppercase; font-size: .74rem; font-weight: 800; }
     h1, h2, h3, p { margin-top: 0; }
-    h1 { font-size: clamp(2.8rem, 6vw, 5.3rem); letter-spacing: -.065em; line-height: 1.05; margin-bottom: 24px; }
+    h1 { font-size: clamp(3rem, 5.4vw, 5.1rem); letter-spacing: -.065em; line-height: 1.05; margin-bottom: 24px; }
     .gradient { background: linear-gradient(90deg, #63ddf5, #bca4ff 70%, #f2a1d9); background-clip: text; color: transparent; }
     .hero p { max-width: 630px; color: #d7e2ff; font-size: clamp(1.04rem, 1.7vw, 1.2rem); }
     .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
@@ -46,9 +47,24 @@
     .button.primary { background: #8deafa; color: #0b2651; }
     .button.secondary { border-color: #6680b7; color: #fff; background: rgba(255,255,255,.07); }
     .button.secondary:hover { background: rgba(255,255,255,.16); color: #fff; }
-    .hero-art { padding: 15px; border: 1px solid rgba(163,188,255,.25); border-radius: 22px; background: rgba(255,255,255,.055); box-shadow: 0 20px 70px rgba(1,8,30,.26); }
-    .hero-art img { display: block; width: 100%; border-radius: 11px; }
-    .hero-art p { margin: 14px 4px 0; font-size: .84rem; text-align: center; color: #b7c9ec; }
+    .hero-demo { padding: 23px; border: 1px solid rgba(160,194,255,.3); border-radius: 23px; background: rgba(9,20,51,.76); box-shadow: 0 26px 75px rgba(1,8,30,.32); }
+    .demo-top, .demo-terminal-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; font: 700 .77rem/1.3 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .05em; }
+    .demo-top { color: #a9e9ff; text-transform: uppercase; }
+    .demo-top span:last-child { color: #a7b9df; font-weight: 500; text-transform: none; letter-spacing: 0; }
+    .live-dot { display: inline-block; width: 8px; height: 8px; margin-right: 7px; border-radius: 50%; background: #7ef0c9; box-shadow: 0 0 0 5px rgba(126,240,201,.14); }
+    .demo-task { margin: 20px 0; padding: 17px 18px; border-radius: 13px; border: 1px solid rgba(150,180,255,.2); background: rgba(255,255,255,.06); }
+    .demo-task small { display: block; color: #88def3; font-size: .7rem; font-weight: 800; letter-spacing: .15em; }
+    .hero .demo-task p { margin: 5px 0 0; color: #f3f7ff; font-size: 1rem; }
+    .demo-steps { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 7px; margin-bottom: 14px; }
+    .demo-steps button { min-height: 42px; padding: 8px 4px; border: 1px solid rgba(142,174,240,.31); border-radius: 10px; color: #b7c9eb; background: rgba(255,255,255,.045); font-family: inherit; font-size: .75rem; font-weight: 700; line-height: 1.2; cursor: pointer; }
+    .demo-steps button:focus-visible { outline: 3px solid #ffca70; outline-offset: 3px; }
+    .demo-steps button[aria-pressed="true"] { color: #10274b; border-color: #7ce9f4; background: #86eafa; box-shadow: 0 5px 20px rgba(87,218,244,.2); }
+    .demo-steps button:hover:not([aria-pressed="true"]) { background: rgba(255,255,255,.12); color: #fff; }
+    .demo-terminal { min-height: 170px; padding: 17px 18px; border-radius: 13px; background: #071127; border: 1px solid rgba(131,169,245,.22); }
+    .demo-terminal-head { color: #83e0f1; }
+    .demo-terminal-head span:last-child { color: #738bb7; letter-spacing: 0; font-weight: 500; }
+    .demo-terminal code { display: block; margin-top: 17px; color: #f2e5ac; white-space: pre-wrap; overflow-wrap: anywhere; font: .83rem/1.65 ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .hero .demo-explain { margin: 13px 2px 0; min-height: 40px; font-size: .82rem; color: #b8c9ec; }
     .stats { display: flex; flex-wrap: wrap; gap: 18px 30px; padding: 22px 0; color: #425371; font-size: .94rem; font-weight: 650; }
     section { scroll-margin-top: 85px; }
     .section { padding: 68px 0 12px; }
@@ -59,8 +75,12 @@
     .roadmap-frame { padding: 14px; border: 1px solid var(--line); background: #fff; border-radius: 18px; box-shadow: var(--shadow); }
     .roadmap-frame img { display: block; width: 100%; height: auto; border-radius: 9px; }
     .roadmap-caption { color: var(--muted); font-size: .9rem; margin: 15px 2px 0; }
-    .cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
-    .card { display: flex; flex-direction: column; min-height: 290px; padding: 26px; background: var(--surface); border: 1px solid var(--line); border-radius: 18px; box-shadow: var(--shadow); }
+    .cards { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 17px; }
+    .card { display: flex; flex-direction: column; min-height: 275px; padding: 24px; background: var(--surface); border: 1px solid var(--line); border-top: 4px solid #6e9cf7; border-radius: 18px; box-shadow: var(--shadow); transition: transform .2s ease, box-shadow .2s ease; }
+    .card:hover { transform: translateY(-5px); box-shadow: 0 22px 48px rgba(24,49,103,.14); }
+    .card:nth-child(3n+2) { border-top-color: #af83ed; }
+    .card:nth-child(3n) { border-top-color: #53c9bd; }
+    .card:last-child { grid-column: span 2; background: linear-gradient(135deg, #ffffff, #f1f7ff); }
     .card .number { display: inline-grid; place-items: center; width: 40px; height: 40px; margin-bottom: 18px; border-radius: 12px; background: #e8f2ff; color: #2857ad; font-weight: 800; }
     .card:nth-child(3n+2) .number { background: #f0eaff; color: #7547bc; }
     .card:nth-child(3n) .number { background: #e3f7f5; color: #087a80; }
@@ -73,6 +93,26 @@
     .note small { display: block; color: var(--muted); font-size: .78rem; font-weight: 700; }
     .note strong { display: block; font-size: .95rem; }
     .note .arrow { font-size: 1.3rem; color: var(--blue); }
+    .note.pending { border-style: dashed; background: #f5f7fc; color: #6a7891; }
+    .note.pending .arrow { color: #8d98aa; }
+    .concepts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+    .concept { padding: 21px; background: #fff; border: 1px solid var(--line); border-radius: 15px; }
+    .concept h3 { font-size: 1rem; margin-bottom: 7px; }
+    .concept p { color: var(--muted); font-size: .89rem; margin-bottom: 12px; }
+    .concept a { font-size: .82rem; font-weight: 750; }
+    .projects { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+    .project { position: relative; display: flex; flex-direction: column; min-height: 300px; padding: 30px; border-radius: 20px; color: #f6f8ff; overflow: hidden; box-shadow: 0 20px 42px rgba(24,49,103,.14); }
+    .project::after { content: ""; position: absolute; width: 225px; height: 225px; right: -75px; top: -75px; border: 1px solid rgba(255,255,255,.2); border-radius: 50%; box-shadow: 0 0 0 32px rgba(255,255,255,.035), 0 0 0 70px rgba(255,255,255,.025); pointer-events: none; }
+    .project.evolve { background: linear-gradient(130deg, #233473, #5837a5); }
+    .project.rebuttal { background: linear-gradient(130deg, #114c62, #147f8d); }
+    .project.jev { background: linear-gradient(130deg, #633270, #a34473); }
+    .project-top { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-bottom: 34px; }
+    .project-icon { font-size: 1.8rem; }
+    .project-status { border: 1px solid rgba(255,255,255,.35); border-radius: 999px; padding: 5px 11px; background: rgba(255,255,255,.1); font-size: .74rem; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; }
+    .project h3 { position: relative; z-index: 1; font-size: 1.55rem; line-height: 1.18; margin-bottom: 12px; }
+    .project p { position: relative; z-index: 1; color: #e1e9ff; font-size: .93rem; }
+    .project-flow { position: relative; z-index: 1; margin-top: auto; padding-top: 18px; color: #c7f4ff; font: 700 .75rem/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .02em; }
+    .project-flow a { color: #e8f8ff; }
     .panel { padding: 30px; border: 1px solid #cddaf2; background: linear-gradient(135deg, #edf5ff, #f5efff); border-radius: 20px; }
     .panel h3 { font-size: 1.3rem; margin-bottom: 6px; }
     .panel p { color: #4d5c77; }
@@ -82,23 +122,33 @@
     .foot p { margin: 0; }
     @media (max-width: 850px) {
       .hero-inner { grid-template-columns: 1fr; gap: 28px; padding: 62px 0 66px; }
-      .hero-art { max-width: 650px; }
+      .hero-demo { max-width: 650px; }
       .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .projects { grid-template-columns: 1fr; }
+      .concepts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .project { min-height: 240px; }
     }
     @media (max-width: 600px) {
-      .wrap { width: min(100% - 28px, 1160px); }
+      .wrap { width: min(1160px, calc(100% - 28px)); }
       .nav { align-items: flex-start; flex-direction: column; padding: 13px 0; gap: 8px; }
       .navlinks { justify-content: flex-start; gap: 6px 16px; }
+      .hero-inner { min-width: 0; }
+      .hero-inner > * { min-width: 0; }
+      .hero-demo { min-width: 0; overflow: hidden; }
+      .demo-top, .demo-terminal-head { flex-wrap: wrap; }
+      .demo-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .section { padding-top: 52px; }
-      .cards, .notes { grid-template-columns: 1fr; }
-      .card { min-height: 0; }
+      .cards, .notes, .projects, .concepts { grid-template-columns: 1fr; }
+      .card, .project { min-height: 0; }
+      .card:last-child { grid-column: auto; }
       .section-head { display: block; }
       .stats { gap: 8px 20px; }
       .panel { padding: 23px 18px; }
+      .hero-demo { padding: 17px; }
     }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      .button { transition: none; }
+      .button, .card { transition: none; }
     }
   </style>
 </head>
@@ -108,8 +158,10 @@
       <a class="brand" href="#top">Agent System <span>Learning Lab</span></a>
       <div class="navlinks">
         <a href="#roadmap">Roadmap</a>
-        <a href="#labs">Labs</a>
         <a href="#notes">Study notes</a>
+        <a href="#concepts">Concepts</a>
+        <a href="#labs">Labs</a>
+        <a href="#projects">Projects</a>
         <a href="#start">Get started</a>
         <a href="https://github.com/braventechcn/Agent_System">GitHub ↗</a>
       </div>
@@ -121,22 +173,31 @@
       <div class="hero-inner wrap">
         <div>
           <span class="eyebrow">Learn · Build · Trace</span>
-          <h1>Agent System<br><span class="gradient">Learning Lab</span></h1>
-          <p>Build an agent. Watch it decide. Trace what actually runs. Seven hands-on Python labs connect agent fundamentals to a daily planner, its Harness, and reliability evaluation.</p>
+          <h1>Agent systems,<br><span class="gradient">made visible.</span></h1>
+          <p>See how an Agent observes, chooses, executes, and checks the result. Seven runnable Python labs take you from a six-room cleaner to a daily planner and its reliability evaluation. More ambitious projects are on the way.</p>
           <div class="actions">
             <a class="button primary" href="#labs">Explore the labs →</a>
-            <a class="button secondary" href="https://github.com/braventechcn/Agent_System">View repository ↗</a>
+            <a class="button secondary" href="#projects">See what’s next ↓</a>
           </div>
         </div>
-        <div class="hero-art">
-          <img src="assets/agent-system-banner.svg" alt="Agent System Learning Lab: observe, decide, act, and feedback">
-          <p>Observe → Decide → Act → Feedback</p>
+        <div class="hero-demo" aria-label="Interactive example of an Agent decision loop">
+          <div class="demo-top"><span><span class="live-dot"></span> Agent Loop / interactive trace</span><span>Example · no API call</span></div>
+          <div class="demo-task"><small>USER REQUEST</small><p>Plan my AI workday around an 11:00 group meeting.</p></div>
+          <div class="demo-steps" role="group" aria-label="Select a loop stage">
+            <button type="button" data-stage="observe" aria-pressed="true">01 Observe</button>
+            <button type="button" data-stage="decide" aria-pressed="false">02 Decide</button>
+            <button type="button" data-stage="execute" aria-pressed="false">03 Execute</button>
+            <button type="button" data-stage="verify" aria-pressed="false">04 Verify</button>
+          </div>
+          <div class="demo-terminal" aria-live="polite"><div class="demo-terminal-head"><span id="demo-stage">OBSERVATION</span><span id="demo-file">daily_focus_planner.json</span></div><code id="demo-code">{"busy":["11:00 group meeting"],
+ "tasks":["evaluation", "paper", "brief"]}</code></div>
+          <p class="demo-explain" id="demo-explain">The runtime gathers the current schedule and tasks before asking for a next action.</p>
         </div>
       </div>
     </div>
 
     <div class="stats wrap" aria-label="Project status">
-      <span>🧪 7 runnable labs</span><span>🧭 7-module roadmap</span><span>🔄 Actively updated / 持续更新中</span>
+      <span>🧪 7 runnable labs</span><span>🧭 7-module basics track</span><span>📝 Study notes in progress</span><span>✨ 3 projects planned</span>
     </div>
 
     <section id="roadmap" class="section wrap">
@@ -150,9 +211,39 @@
       <p class="roadmap-caption">The diagram is a learning map. Modules 03–05 are complementary capabilities, not a strict dependency chain.</p>
     </section>
 
+    <section id="notes" class="section wrap">
+      <div class="section-head">
+        <div><div class="section-kicker">02 / Reading</div><h2>Study notes</h2></div>
+        <p>These notes are still being written and revised. The first note covers modules 01–02; the separate module 07 note is still to come. Notion page access follows its own sharing settings.</p>
+      </div>
+      <div class="notes">
+        <a class="note" href="https://sphenoid-rhodium-72f.notion.site/Agent-Agent-LLM-Agent-40d9d02716b6802682e9c9ed6b4ba43c"><span><small>Modules 01–02</small><strong>Agent and LLM Agent</strong></span><span class="arrow" aria-hidden="true">↗</span></a>
+        <a class="note" href="https://sphenoid-rhodium-72f.notion.site/Agent-Agent-Tool-API-Function-Calling-MCP-4109d02716b680f4bb5cc93f9383b68f"><span><small>Module 03</small><strong>Tool, API, Function Calling and MCP</strong></span><span class="arrow" aria-hidden="true">↗</span></a>
+        <a class="note" href="https://sphenoid-rhodium-72f.notion.site/Agent-Agent-Context-Session-Memory-RAG-4109d02716b680a8a3f5c6482bf87564"><span><small>Module 04</small><strong>Context, Session, Memory and RAG</strong></span><span class="arrow" aria-hidden="true">↗</span></a>
+        <a class="note" href="https://sphenoid-rhodium-72f.notion.site/Agent-Agent-Planning-Reflection-Skill-4109d02716b680a68216c1bfb3f033da"><span><small>Module 05</small><strong>Planning, Reflection and Skill</strong></span><span class="arrow" aria-hidden="true">↗</span></a>
+        <a class="note" href="https://sphenoid-rhodium-72f.notion.site/Agent-Harness-4139d02716b68084925ffe5251428ac7?source=copy_link"><span><small>Module 06</small><strong>Harness and task runtime / 任务运行机制</strong></span><span class="arrow" aria-hidden="true">↗</span></a>
+        <div class="note pending"><span><small>Module 07 · In progress</small><strong>Evaluation and reliability / 笔记待更新</strong></span><span class="arrow" aria-hidden="true">✍</span></div>
+      </div>
+    </section>
+
+    <section id="concepts" class="section wrap">
+      <div class="section-head">
+        <div><div class="section-kicker">03 / The ideas</div><h2>Concepts at a glance</h2></div>
+        <p>Short definitions for the mechanisms you can inspect in the labs. Open the original documentation or paper to go deeper.</p>
+      </div>
+      <div class="concepts">
+        <article class="concept"><h3>🔄 Agent Loop · 智能体循环</h3><p>Observe the environment, choose an action, execute it, and use the result to choose again.</p><a href="https://arxiv.org/abs/2210.03629">ReAct paper ↗</a></article>
+        <article class="concept"><h3>🛠️ Function Calling · 函数调用</h3><p>The model returns a structured tool request; application code validates and executes the tool, then sends the result back.</p><a href="https://developers.openai.com/api/docs/guides/function-calling">OpenAI documentation ↗</a></article>
+        <article class="concept"><h3>🔌 MCP · 模型上下文协议</h3><p>An open standard for discovering and calling external tools, data sources, and workflows through a client and server.</p><a href="https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro">Official introduction ↗</a></article>
+        <article class="concept"><h3>🧠 Context &amp; RAG · 上下文与检索增强</h3><p>Context is the information supplied for one model call. RAG adds retrieved material to help ground the answer.</p><a href="https://arxiv.org/abs/2005.11401">Original RAG paper ↗</a></article>
+        <article class="concept"><h3>⚙️ Harness · 任务运行系统</h3><p>The surrounding runtime manages turns, tool execution, budgets, checkpoints, and verification across an Agent task.</p><a href="https://github.com/braventechcn/Agent_System/tree/main/05_harness">Inspect this lab ↗</a></article>
+        <article class="concept"><h3>⚡ Jev · 决策模型</h3><p>A model for choosing among supplied options. We plan to test when it can choose an Agent’s next step and when to hand control to an LLM.</p><a href="https://arxiv.org/abs/2610.21412">JevAgentHarness paper ↗</a></article>
+      </div>
+    </section>
+
     <section id="labs" class="section wrap">
       <div class="section-head">
-        <div><div class="section-kicker">02 / Practice</div><h2>Choose a lab</h2></div>
+        <div><div class="section-kicker">04 / Practice</div><h2>Choose a lab</h2></div>
         <p>Each lab has runnable code and a detailed Chinese guide. Follow the sequence or jump to the concept you want to inspect.</p>
       </div>
       <div class="cards">
@@ -166,22 +257,20 @@
       </div>
     </section>
 
-    <section id="notes" class="section wrap">
+    <section id="projects" class="section wrap">
       <div class="section-head">
-        <div><div class="section-kicker">03 / Reading</div><h2>Study notes</h2></div>
-        <p>Conceptual notes accompany the experiments. The first note covers both Agent fundamentals and LLM agents. Notion page access follows its own sharing settings.</p>
+        <div><div class="section-kicker">05 / Coming next</div><h2>Beyond the basics</h2></div>
+        <p>The seven labs are live. These projects are planned research and builds, with study notes and new experiments continuing to grow.</p>
       </div>
-      <div class="notes">
-        <a class="note" href="https://sphenoid-rhodium-72f.notion.site/Agent-Agent-LLM-Agent-40d9d02716b6802682e9c9ed6b4ba43c"><span><small>Modules 01–02</small><strong>Agent and LLM Agent</strong></span><span class="arrow" aria-hidden="true">↗</span></a>
-        <a class="note" href="https://sphenoid-rhodium-72f.notion.site/Agent-Agent-Tool-API-Function-Calling-MCP-4109d02716b680f4bb5cc93f9383b68f"><span><small>Module 03</small><strong>Tool, API, Function Calling and MCP</strong></span><span class="arrow" aria-hidden="true">↗</span></a>
-        <a class="note" href="https://sphenoid-rhodium-72f.notion.site/Agent-Agent-Context-Session-Memory-RAG-4109d02716b680a8a3f5c6482bf87564"><span><small>Module 04</small><strong>Context, Session, Memory and RAG</strong></span><span class="arrow" aria-hidden="true">↗</span></a>
-        <a class="note" href="https://sphenoid-rhodium-72f.notion.site/Agent-Agent-Planning-Reflection-Skill-4109d02716b680a68216c1bfb3f033da"><span><small>Module 05</small><strong>Planning, Reflection and Skill</strong></span><span class="arrow" aria-hidden="true">↗</span></a>
-        <a class="note" href="https://sphenoid-rhodium-72f.notion.site/Agent-Harness-4139d02716b68084925ffe5251428ac7?source=copy_link"><span><small>Module 06</small><strong>Harness and task runtime / 任务运行机制</strong></span><span class="arrow" aria-hidden="true">↗</span></a>
+      <div class="projects">
+        <article class="project evolve"><div class="project-top"><span class="project-icon" aria-hidden="true">🔁</span><span class="project-status">Planned</span></div><h3>Self-Evolving Agent<br>自进化 Agent</h3><p>Let an Agent inspect failed runs, propose a better workflow, and test its own changes. Watch each accepted improvement earn its place through repeatable evaluation.</p><div class="project-flow">TRACE → CANDIDATE → EVALUATE → KEEP</div></article>
+        <article class="project rebuttal"><div class="project-top"><span class="project-icon" aria-hidden="true">📝</span><span class="project-status">Planned</span></div><h3>Research Rebuttal Agent<br>论文审稿与回复智能体</h3><p>Turn reviewer comments into a map of claims, missing evidence, and targeted experiments. Follow the path from criticism to results to a reviewable point-by-point response.</p><div class="project-flow">REVIEWS → EXPERIMENTS → EVIDENCE → REBUTTAL</div></article>
+        <article class="project jev"><div class="project-top"><span class="project-icon" aria-hidden="true">⚡</span><span class="project-status">Planned</span></div><h3>Jev Decision Model Research<br>Jev 决策模型研究</h3><p>Can a decision model take clear-cut Agent choices and hand uncertain ones to an LLM? Compare success, speed, cost, and confidence on real traces to find where it helps—and where it fails.</p><div class="project-flow">CHOICE → CONFIDENCE → FALLBACK · <a href="https://arxiv.org/abs/2610.21412">Research background ↗</a></div></article>
       </div>
     </section>
 
     <section id="start" class="section wrap">
-      <div class="section-head"><div><div class="section-kicker">04 / Run it</div><h2>Get started locally</h2></div></div>
+      <div class="section-head"><div><div class="section-kicker">06 / Run it</div><h2>Get started locally</h2></div></div>
       <div class="panel">
         <h3>Start with a simple agent</h3>
         <p>Clone the repository and run the six-room cleaning experiment. The LLM labs have separate setup steps in their guides.</p>
@@ -193,6 +282,25 @@ python3 -m venv .venv
     </section>
   </main>
 
-  <footer class="foot"><div class="foot-inner wrap"><p>Agent System Learning Lab · Built for learning by running and tracing.</p><p><a href="https://github.com/braventechcn/Agent_System">Source on GitHub ↗</a> · All seven modules are live.</p></div></footer>
+  <footer class="foot"><div class="foot-inner wrap"><p>Agent System Learning Lab · Built for learning by running and tracing.</p><p><a href="https://github.com/braventechcn/Agent_System">Source on GitHub ↗</a> · Seven basics labs live. More projects ahead.</p></div></footer>
+  <script>
+    const stages = {
+      observe: { label: "OBSERVATION", file: "daily_focus_planner.json", code: '{"busy":["11:00 group meeting"],\n "tasks":["evaluation", "paper", "brief"]}', explain: "The runtime gathers the current schedule and tasks before asking for a next action." },
+      decide: { label: "MODEL DECISION", file: "function_call.json", code: '{"name":"schedule_focus",\n "arguments":{"task":"evaluation", "time":"09:00"}}', explain: "The model returns a proposed tool call. It has not changed the calendar yet." },
+      execute: { label: "TOOL EXECUTION", file: "tool_result.json", code: '{"tool":"schedule_focus",\n "result":{"ok":true, "time":"09:00"}}', explain: "Python validates the request, runs the calendar tool, and records its actual result." },
+      verify: { label: "VERIFICATION", file: "run_check.json", code: '{"scheduled_blocks":5,\n "required_blocks":5,\n "success":true}', explain: "The Harness checks the resulting state before reporting the task complete." }
+    };
+    const buttons = document.querySelectorAll("[data-stage]");
+    for (const button of buttons) {
+      button.addEventListener("click", () => {
+        const stage = stages[button.dataset.stage];
+        for (const other of buttons) other.setAttribute("aria-pressed", String(other === button));
+        document.getElementById("demo-stage").textContent = stage.label;
+        document.getElementById("demo-file").textContent = stage.file;
+        document.getElementById("demo-code").textContent = stage.code;
+        document.getElementById("demo-explain").textContent = stage.explain;
+      });
+    }
+  </script>
 </body>
 </html>

@@ -5,7 +5,7 @@
 <p align="center"><strong>Build an agent. Watch it decide. Trace what actually runs.</strong></p>
 <p align="center">🧪 7 runnable labs &nbsp;·&nbsp; 🧭 7-module basics track &nbsp;·&nbsp; 🔄 Work in progress / 持续更新中</p>
 <p align="center"><a href="https://braventechcn.github.io/Agent_System/"><strong>🌐 Open the learning portal</strong></a> · <a href="https://github.com/braventechcn/Agent_System"><strong>View source on GitHub</strong></a></p>
-<p align="center"><a href="#learning-roadmap">Learning roadmap</a> · <a href="#study-notes">Study notes</a> · <a href="#choose-a-lab">Choose a lab</a> · <a href="#inside-the-live-labs">Inside the labs</a> · <a href="#quick-start">Quick start</a></p>
+<p align="center"><a href="#learning-roadmap">Learning roadmap</a> · <a href="#study-notes">Study notes</a> · <a href="#choose-a-lab">Choose a lab</a> · <a href="#inside-the-live-labs">Inside the labs</a> · <a href="#upcoming-projects">Upcoming projects</a> · <a href="#quick-start">Quick start</a></p>
 
 Explore agent systems through seven runnable Python labs, from a six-room cleaner to a daily focus planner and its reliability evaluation. This is the current Agent basics track; more notes, topics, and projects will follow. The detailed guides and code comments are primarily in Chinese.
 
@@ -132,9 +132,24 @@ The [Daily Focus Planner](05_harness/README.md) turns a graduate student's and A
 
 The [reliability diagnosis lab](06_evaluation_reliability/README.md) evaluates the real Daily Focus Planner across eight deterministic scenarios. It checks run artifacts independently, catches false completion, compares error feedback with repeated mistakes, and reports how retry and resume affect outcomes and cost.
 
+<a id="upcoming-projects"></a>
 ## What's next · 待更新
 
-The seven labs form the **current Agent basics track**. The study notes are still in progress, and the existing guides and experiments may be refined as those notes develop. Future updates will add more Agent topics and runnable projects beyond this seven-module roadmap; new material will be linked here as it becomes available.
+The seven labs form the **current Agent basics track**. The study notes are still in progress, and the existing guides and experiments may be refined as those notes develop. The next projects will take these ideas into longer, more realistic workflows:
+
+### 🔁 Self-Evolving Agent · 自进化 Agent — Planned
+
+What if an Agent could learn from a failed run and propose a better version of its own workflow? This project will let an Agent inspect traces, suggest changes to prompts, tools, or Skills, and test each candidate against a fixed evaluation set. Only improvements that survive regression and safety checks will be kept, so every step of its “evolution” has evidence you can inspect and reproduce.
+
+### 📝 Research Rebuttal Agent · 论文审稿与回复智能体 — Planned
+
+Turn a dense set of reviewer comments into a clear research action plan. The Agent will group concerns, trace each one to claims and evidence in the paper, plan and run targeted experiments, then draft a point-by-point rebuttal with links to the resulting data. The goal is a reviewable path from criticism to experiment to response, with the researcher checking the evidence and approving the final wording.
+
+### ⚡ Jev Decision Model Research · Jev 决策模型研究 — Planned
+
+Can a smaller decision model handle an Agent's clear-cut choices while an LLM focuses on open-ended work? This research track will test Jev-style decisions for tool routing, next-step selection, and when to ask the LLM for help. We will compare task success, latency, cost, and confidence calibration on recorded Agent runs, then make the decision and fallback traces visible. The aim is to discover where this division of work helps and where it fails, with measured results rather than assumed speedups. See the [JevAgentHarness research paper](https://arxiv.org/abs/2610.21412) for background.
+
+More Agent topics and runnable projects will be linked here as they become available.
 
 ## Quick start
 
