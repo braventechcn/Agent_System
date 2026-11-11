@@ -1,0 +1,5 @@
+flowchart LR
+    E["Environment state<br/>环境状态"] -->|observation / 观察| A["Agent<br/>decides an action"]
+    A -->|proposed action / 候选动作| R["Runtime<br/>validates and executes"]
+    R -->|real effect / 实际执行| E
+    E -. new state becomes the next observation .-> A

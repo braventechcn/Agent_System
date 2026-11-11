@@ -1,0 +1,6 @@
+flowchart LR
+    O["Context + supplied options"] --> J["Jev-style model<br/>choice + score"]
+    J --> G["Harness-side confidence gate"]
+    G -->|threshold met| N["Proposed next step<br/>not yet executed"]
+    G -->|uncertain| L["LLM decides"]
+    %% The threshold and fallback policy are design choices to evaluate.

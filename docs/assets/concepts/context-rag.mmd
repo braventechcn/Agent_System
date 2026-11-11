@@ -1,0 +1,8 @@
+flowchart LR
+    Q["Current question"] --> B["Context Builder<br/>select + budget"]
+    S[("Session history")] -->|selected messages| B
+    M[("Memory store")] -->|retrieved and selected| B
+    D[("Documents")] --> R["RAG retrieval"]
+    R -->|relevant passages + sources| B
+    B -->|this call's context| L["LLM"]
+    %% Storage and retrieval alone do not make information visible to the model.

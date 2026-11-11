@@ -1,0 +1,16 @@
+flowchart TB
+    subgraph Task["Task · goal and scope"]
+        subgraph Run["Run · one execution or resume boundary"]
+            subgraph Turn["Turn · one decision cycle"]
+                Step["Step · recorded decision or tool event"]
+            end
+            Guard["Policy, budget, tool guard"]
+            Trace["Trace · what happened"]
+            Checkpoint["Checkpoint · where to resume"]
+            Verify["Verifier · whether goal is met"]
+        end
+    end
+    Guard -. governs .-> Step
+    Step --> Trace
+    Step --> Checkpoint
+    Step --> Verify

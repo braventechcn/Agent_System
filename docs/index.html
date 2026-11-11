@@ -35,7 +35,7 @@
     .navlinks a:hover { color: var(--blue); }
     .hero { position: relative; background: radial-gradient(circle at 83% 18%, rgba(112,84,225,.55) 0, transparent 34%), radial-gradient(circle at 12% 92%, rgba(16,179,209,.22) 0, transparent 35%), linear-gradient(130deg, #0d1836, #141d49 58%, #291859); color: #fff; overflow: hidden; }
     .hero::before { content: ""; position: absolute; inset: 0; opacity: .13; background-image: linear-gradient(#8aa9fa 1px, transparent 1px), linear-gradient(90deg, #8aa9fa 1px, transparent 1px); background-size: 48px 48px; mask-image: linear-gradient(90deg, transparent, #000); pointer-events: none; }
-    .hero-inner { position: relative; padding: 86px 0 94px; display: grid; grid-template-columns: 1.05fr .95fr; gap: 52px; align-items: center; }
+    .hero-inner { position: relative; padding: 76px 0 86px; display: grid; grid-template-columns: .9fr 1.1fr; gap: 42px; align-items: center; }
     .eyebrow { display: inline-block; margin-bottom: 20px; color: #8ce9fa; letter-spacing: .19em; text-transform: uppercase; font-size: .74rem; font-weight: 800; }
     h1, h2, h3, p { margin-top: 0; }
     h1 { font-size: clamp(3rem, 5.4vw, 5.1rem); letter-spacing: -.065em; line-height: 1.05; margin-bottom: 24px; }
@@ -47,24 +47,33 @@
     .button.primary { background: #8deafa; color: #0b2651; }
     .button.secondary { border-color: #6680b7; color: #fff; background: rgba(255,255,255,.07); }
     .button.secondary:hover { background: rgba(255,255,255,.16); color: #fff; }
-    .hero-demo { padding: 23px; border: 1px solid rgba(160,194,255,.3); border-radius: 23px; background: rgba(9,20,51,.76); box-shadow: 0 26px 75px rgba(1,8,30,.32); }
+    .hero-demo { min-width: 0; padding: 23px; border: 1px solid rgba(160,194,255,.3); border-radius: 23px; background: rgba(9,20,51,.76); box-shadow: 0 26px 75px rgba(1,8,30,.32); }
     .demo-top, .demo-terminal-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; font: 700 .77rem/1.3 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .05em; }
     .demo-top { color: #a9e9ff; text-transform: uppercase; }
     .demo-top span:last-child { color: #a7b9df; font-weight: 500; text-transform: none; letter-spacing: 0; }
     .live-dot { display: inline-block; width: 8px; height: 8px; margin-right: 7px; border-radius: 50%; background: #7ef0c9; box-shadow: 0 0 0 5px rgba(126,240,201,.14); }
-    .demo-task { margin: 20px 0; padding: 17px 18px; border-radius: 13px; border: 1px solid rgba(150,180,255,.2); background: rgba(255,255,255,.06); }
+    .demo-task { margin: 18px 0; padding: 15px 17px; border-radius: 13px; border: 1px solid rgba(150,180,255,.2); background: rgba(255,255,255,.06); }
     .demo-task small { display: block; color: #88def3; font-size: .7rem; font-weight: 800; letter-spacing: .15em; }
     .hero .demo-task p { margin: 5px 0 0; color: #f3f7ff; font-size: 1rem; }
+    .demo-flow { display: flex; align-items: center; justify-content: space-between; gap: 4px; margin: 0 0 13px; color: #a2b9e9; font-size: .72rem; font-weight: 750; }
+    .demo-flow span { min-width: 0; white-space: nowrap; }
+    .demo-flow b { color: #79e5f0; font-weight: 800; }
     .demo-steps { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 7px; margin-bottom: 14px; }
-    .demo-steps button { min-height: 42px; padding: 8px 4px; border: 1px solid rgba(142,174,240,.31); border-radius: 10px; color: #b7c9eb; background: rgba(255,255,255,.045); font-family: inherit; font-size: .75rem; font-weight: 700; line-height: 1.2; cursor: pointer; }
+    .demo-steps button { min-height: 49px; padding: 7px 5px; border: 1px solid rgba(142,174,240,.31); border-radius: 10px; color: #b7c9eb; background: rgba(255,255,255,.045); font-family: inherit; font-size: .72rem; font-weight: 700; line-height: 1.2; cursor: pointer; }
+    .demo-steps button small { display: block; margin-top: 4px; color: inherit; opacity: .74; font-size: .66rem; }
     .demo-steps button:focus-visible { outline: 3px solid #ffca70; outline-offset: 3px; }
     .demo-steps button[aria-pressed="true"] { color: #10274b; border-color: #7ce9f4; background: #86eafa; box-shadow: 0 5px 20px rgba(87,218,244,.2); }
     .demo-steps button:hover:not([aria-pressed="true"]) { background: rgba(255,255,255,.12); color: #fff; }
-    .demo-terminal { min-height: 170px; padding: 17px 18px; border-radius: 13px; background: #071127; border: 1px solid rgba(131,169,245,.22); }
+    .demo-terminal { min-height: 248px; padding: 17px 18px; border-radius: 13px; background: #071127; border: 1px solid rgba(131,169,245,.22); }
     .demo-terminal-head { color: #83e0f1; }
     .demo-terminal-head span:last-child { color: #738bb7; letter-spacing: 0; font-weight: 500; }
-    .demo-terminal code { display: block; margin-top: 17px; color: #f2e5ac; white-space: pre-wrap; overflow-wrap: anywhere; font: .83rem/1.65 ui-monospace, SFMono-Regular, Menlo, monospace; }
-    .hero .demo-explain { margin: 13px 2px 0; min-height: 40px; font-size: .82rem; color: #b8c9ec; }
+    .demo-terminal pre { margin: 13px 0 0; padding: 0; background: none; color: #f2e5ac; white-space: pre-wrap; overflow-wrap: anywhere; font: .76rem/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .demo-terminal code { font: inherit; }
+    .demo-actor { display: inline-block; margin-top: 10px; padding: 4px 9px; border-radius: 999px; background: #1a3656; color: #a3ecfa; font-size: .69rem; font-weight: 800; }
+    .hero .demo-explain { margin: 13px 2px 0; min-height: 54px; font-size: .83rem; color: #c9d6f3; }
+    .hero .demo-next { margin: 8px 2px 0; padding-top: 9px; border-top: 1px solid rgba(160,194,255,.17); color: #85e7f2; font-size: .78rem; font-weight: 700; }
+    .demo-source { margin-top: 13px; font-size: .75rem; color: #b2c5ea; }
+    .demo-source a { color: #97e8f7; }
     .stats { display: flex; flex-wrap: wrap; gap: 18px 30px; padding: 22px 0; color: #425371; font-size: .94rem; font-weight: 650; }
     section { scroll-margin-top: 85px; }
     .section { padding: 68px 0 12px; }
@@ -96,10 +105,13 @@
     .note.pending { border-style: dashed; background: #f5f7fc; color: #6a7891; }
     .note.pending .arrow { color: #8d98aa; }
     .concepts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
-    .concept { padding: 21px; background: #fff; border: 1px solid var(--line); border-radius: 15px; }
+    .concept { display: flex; flex-direction: column; padding: 21px; background: #fff; border: 1px solid var(--line); border-radius: 15px; }
+    .concept-visual { display: block; margin-bottom: 18px; border-radius: 12px; }
+    .concept img { display: block; width: 100%; height: auto; border-radius: 12px; background: #101a35; }
     .concept h3 { font-size: 1rem; margin-bottom: 7px; }
-    .concept p { color: var(--muted); font-size: .89rem; margin-bottom: 12px; }
-    .concept a { font-size: .82rem; font-weight: 750; }
+    .concept p { color: var(--muted); font-size: .87rem; margin-bottom: 11px; }
+    .concept p.zh { color: #3f4e68; }
+    .concept a { margin-top: auto; padding-top: 4px; font-size: .82rem; font-weight: 750; }
     .projects { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
     .project { position: relative; display: flex; flex-direction: column; min-height: 300px; padding: 30px; border-radius: 20px; color: #f6f8ff; overflow: hidden; box-shadow: 0 20px 42px rgba(24,49,103,.14); }
     .project::after { content: ""; position: absolute; width: 225px; height: 225px; right: -75px; top: -75px; border: 1px solid rgba(255,255,255,.2); border-radius: 50%; box-shadow: 0 0 0 32px rgba(255,255,255,.035), 0 0 0 70px rgba(255,255,255,.025); pointer-events: none; }
@@ -136,6 +148,7 @@
       .hero-inner > * { min-width: 0; }
       .hero-demo { min-width: 0; overflow: hidden; }
       .demo-top, .demo-terminal-head { flex-wrap: wrap; }
+      .demo-flow { flex-wrap: wrap; justify-content: flex-start; gap: 5px 9px; }
       .demo-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .section { padding-top: 52px; }
       .cards, .notes, .projects, .concepts { grid-template-columns: 1fr; }
@@ -174,24 +187,29 @@
         <div>
           <span class="eyebrow">Learn · Build · Trace</span>
           <h1>Agent systems,<br><span class="gradient">made visible.</span></h1>
-          <p>See how an Agent observes, chooses, executes, and checks the result. Seven runnable Python labs take you from a six-room cleaner to a daily planner and its reliability evaluation. More ambitious projects are on the way.</p>
+          <p>Follow a request across the model, Python tools, and the next model call. Seven runnable Python labs take you from Agent fundamentals to a daily planner and reliability evaluation.</p>
           <div class="actions">
             <a class="button primary" href="#labs">Explore the labs →</a>
             <a class="button secondary" href="#projects">See what’s next ↓</a>
           </div>
         </div>
         <div class="hero-demo" aria-label="Interactive example of an Agent decision loop">
-          <div class="demo-top"><span><span class="live-dot"></span> Agent Loop / interactive trace</span><span>Example · no API call</span></div>
-          <div class="demo-task"><small>USER REQUEST</small><p>Plan my AI workday around an 11:00 group meeting.</p></div>
+          <div class="demo-top"><span><span class="live-dot"></span> Agent Loop / 调用轨迹</span><span>Teaching example · no live API call</span></div>
+          <div class="demo-task"><small>USER REQUEST · 用户问题</small><p>Where is “Python Basics”, and can I borrow it?</p></div>
+          <div class="demo-flow" aria-label="Agent loop: user input, LLM request, Python execution, tool feedback, then LLM decides again"><span>User input</span><b>→</b><span>LLM request</span><b>→</b><span>Python tool</span><b>→</b><span>Feedback</span><b>↺</b></div>
           <div class="demo-steps" role="group" aria-label="Select a loop stage">
-            <button type="button" data-stage="observe" aria-pressed="true">01 Observe</button>
-            <button type="button" data-stage="decide" aria-pressed="false">02 Decide</button>
-            <button type="button" data-stage="execute" aria-pressed="false">03 Execute</button>
-            <button type="button" data-stage="verify" aria-pressed="false">04 Verify</button>
+            <button type="button" data-stage="observe" aria-pressed="true">01 Observe<small>输入</small></button>
+            <button type="button" data-stage="decide" aria-pressed="false">02 Decide<small>模型请求</small></button>
+            <button type="button" data-stage="execute" aria-pressed="false">03 Execute<small>Python 执行</small></button>
+            <button type="button" data-stage="feedback" aria-pressed="false">04 Feedback<small>结果回填</small></button>
           </div>
-          <div class="demo-terminal" aria-live="polite"><div class="demo-terminal-head"><span id="demo-stage">OBSERVATION</span><span id="demo-file">daily_focus_planner.json</span></div><code id="demo-code">{"busy":["11:00 group meeting"],
- "tasks":["evaluation", "paper", "brief"]}</code></div>
-          <p class="demo-explain" id="demo-explain">The runtime gathers the current schedule and tasks before asking for a next action.</p>
+          <div class="demo-terminal" aria-live="polite"><div class="demo-terminal-head"><span id="demo-stage">OBSERVE · INPUT</span><span id="demo-file">history[0]</span></div><span class="demo-actor" id="demo-actor">Agent runtime → LLM</span><pre><code id="demo-code">{
+  "role": "user",
+  "content": "Where is Python Basics, and can I borrow it?"
+}</code></pre></div>
+          <p class="demo-explain" id="demo-explain">The runtime sends the user message and tool definitions to the model. 图书数据仍在 Python 环境中，模型尚未读取。</p>
+          <p class="demo-next" id="demo-next">Next → the model may answer or request a tool.</p>
+          <div class="demo-source">A simplified trace based on <a href="https://github.com/braventechcn/Agent_System/blob/main/01_llm_agent_and_toolcalling/agent_loop.py">lab 02 source ↗</a> · <a href="https://github.com/braventechcn/Agent_System/blob/main/01_llm_agent_and_toolcalling/instruction_tool_choice_report.md">real run report ↗</a></div>
         </div>
       </div>
     </div>
@@ -229,15 +247,51 @@
     <section id="concepts" class="section wrap">
       <div class="section-head">
         <div><div class="section-kicker">03 / The ideas</div><h2>Concepts at a glance</h2></div>
-        <p>Short definitions for the mechanisms you can inspect in the labs. Open the original documentation or paper to go deeper.</p>
+        <p>Visual explanations of the mechanisms you can inspect in the labs. Open a diagram for a larger view; editable Mermaid sources sit beside the SVG files in the repository.</p>
       </div>
       <div class="concepts">
-        <article class="concept"><h3>🔄 Agent Loop · 智能体循环</h3><p>Observe the environment, choose an action, execute it, and use the result to choose again.</p><a href="https://arxiv.org/abs/2210.03629">ReAct paper ↗</a></article>
-        <article class="concept"><h3>🛠️ Function Calling · 函数调用</h3><p>The model returns a structured tool request; application code validates and executes the tool, then sends the result back.</p><a href="https://developers.openai.com/api/docs/guides/function-calling">OpenAI documentation ↗</a></article>
-        <article class="concept"><h3>🔌 MCP · 模型上下文协议</h3><p>An open standard for discovering and calling external tools, data sources, and workflows through a client and server.</p><a href="https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro">Official introduction ↗</a></article>
-        <article class="concept"><h3>🧠 Context &amp; RAG · 上下文与检索增强</h3><p>Context is the information supplied for one model call. RAG adds retrieved material to help ground the answer.</p><a href="https://arxiv.org/abs/2005.11401">Original RAG paper ↗</a></article>
-        <article class="concept"><h3>⚙️ Harness · 任务运行系统</h3><p>The surrounding runtime manages turns, tool execution, budgets, checkpoints, and verification across an Agent task.</p><a href="https://github.com/braventechcn/Agent_System/tree/main/05_harness">Inspect this lab ↗</a></article>
-        <article class="concept"><h3>⚡ Jev · 决策模型</h3><p>A model for choosing among supplied options. We plan to test when it can choose an Agent’s next step and when to hand control to an LLM.</p><a href="https://arxiv.org/abs/2610.21412">JevAgentHarness paper ↗</a></article>
+        <article class="concept">
+          <a class="concept-visual" href="assets/concepts/agent-loop.svg" aria-label="Open the Agent Loop diagram at full size"><img src="assets/concepts/agent-loop.svg" alt="Environment observation reaches Agent; Agent requests an action; Runtime executes it and changes the environment" loading="lazy"></a>
+          <h3>🔄 Agent Loop · 智能体循环</h3>
+          <p>The environment supplies an observation, the Agent proposes an action, and the runtime executes it. A changed state then becomes the next observation.</p>
+          <p class="zh" lang="zh-CN">Agent 的“决定”不等于环境已经变化；执行后必须重新观察并获取反馈，循环才真正闭合。</p>
+          <a href="https://arxiv.org/abs/2210.03629">ReAct paper ↗</a>
+        </article>
+        <article class="concept">
+          <a class="concept-visual" href="assets/concepts/function-calling.svg" aria-label="Open the Function Calling diagram at full size"><img src="assets/concepts/function-calling.svg" alt="LLM sends a call item to Agent runtime; runtime validates and invokes Tool; result returns through runtime" loading="lazy"></a>
+          <h3>🛠️ Function Calling · 函数调用</h3>
+          <p>The model emits a tool request. The Agent runtime checks its name and arguments, routes an authorized call to the tool, and returns the result with the same call ID.</p>
+          <p class="zh" lang="zh-CN">模型负责“选哪个工具、传什么参数”；真正运行函数和处理错误的是 Python 程序。请求与执行是两个独立步骤。</p>
+          <a href="https://developers.openai.com/api/docs/guides/function-calling">OpenAI documentation ↗</a>
+        </article>
+        <article class="concept">
+          <a class="concept-visual" href="assets/concepts/mcp.svg" aria-label="Open the MCP diagram at full size"><img src="assets/concepts/mcp.svg" alt="MCP Host contains the model and Client; Client exchanges tool messages with Server; Server calls a Business API" loading="lazy"></a>
+          <h3>🔌 MCP · 模型上下文协议</h3>
+          <p>The Host contains an MCP Client. That client discovers and invokes capabilities exposed by an MCP Server, which may then call a separate business API.</p>
+          <p class="zh" lang="zh-CN">Host 管理模型与连接；Client 负责协议通信；Server 提供能力。MCP 的工具发现和调用，与模型的 Function Calling 是不同层次。</p>
+          <a href="https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro">Official introduction ↗</a>
+        </article>
+        <article class="concept">
+          <a class="concept-visual" href="assets/concepts/context-rag.svg" aria-label="Open the Context and RAG diagram at full size"><img src="assets/concepts/context-rag.svg" alt="Question, session, memory, and retrieved documents feed a selecting Context Builder before the LLM call" loading="lazy"></a>
+          <h3>🧠 Context &amp; RAG · 上下文与检索增强</h3>
+          <p>The Context Builder selects information for this model call. RAG retrieves relevant passages from documents; session history and stored memories enter only if selected.</p>
+          <p class="zh" lang="zh-CN">“已保存”或“已检索”都不等于模型已经看见；只有被组装进本次 Context 的信息才可直接作为依据。</p>
+          <a href="https://arxiv.org/abs/2005.11401">Original RAG paper ↗</a>
+        </article>
+        <article class="concept">
+          <a class="concept-visual" href="assets/concepts/harness.svg" aria-label="Open the Harness diagram at full size"><img src="assets/concepts/harness.svg" alt="Task contains Run, which contains Turn and Step; Harness governs budgets, traces, checkpoints, and verification" loading="lazy"></a>
+          <h3>⚙️ Harness · 任务运行系统</h3>
+          <p>Task, Run, Turn, and Step are nested scopes, not four actions in sequence. The Harness manages execution limits, tool boundaries, traces, checkpoints, and completion checks across them.</p>
+          <p class="zh" lang="zh-CN">模型给出候选动作，Harness 管理能否执行、如何记录、何时恢复或停止；Checkpoint 与 Trace 也不是同一种状态。</p>
+          <a href="https://github.com/braventechcn/Agent_System/tree/main/05_harness">Inspect the Harness lab ↗</a>
+        </article>
+        <article class="concept">
+          <a class="concept-visual" href="assets/concepts/jev.svg" aria-label="Open the Jev decision model diagram at full size"><img src="assets/concepts/jev.svg" alt="Context and options reach Jev; a separate Harness gate accepts a next-step choice or asks an LLM" loading="lazy"></a>
+          <h3>⚡ Jev · 决策模型</h3>
+          <p>A Jev-style model scores supplied choices. In the planned study, a Harness-side confidence gate will decide whether to accept that choice or ask an LLM instead.</p>
+          <p class="zh" lang="zh-CN">Jev 不直接执行动作，置信度门槛也不是模型天然自带的可靠保证；我们会实测正确率、校准、成本与延迟。</p>
+          <a href="https://arxiv.org/abs/2610.21412">JevAgentHarness paper ↗</a>
+        </article>
       </div>
     </section>
 
@@ -284,11 +338,34 @@ python3 -m venv .venv
 
   <footer class="foot"><div class="foot-inner wrap"><p>Agent System Learning Lab · Built for learning by running and tracing.</p><p><a href="https://github.com/braventechcn/Agent_System">Source on GitHub ↗</a> · Seven basics labs live. More projects ahead.</p></div></footer>
   <script>
+    // 这里展示教学轨迹：每一项都由对象序列化，保证显示的是合法 JSON。
+    // function_call 的 arguments 与 function_call_output 的 output 在 Responses API 中都是 JSON 字符串。
+    const foundBook = { book_id: "bk-102", shelf: "3F, Section A" };
     const stages = {
-      observe: { label: "OBSERVATION", file: "daily_focus_planner.json", code: '{"busy":["11:00 group meeting"],\n "tasks":["evaluation", "paper", "brief"]}', explain: "The runtime gathers the current schedule and tasks before asking for a next action." },
-      decide: { label: "MODEL DECISION", file: "function_call.json", code: '{"name":"schedule_focus",\n "arguments":{"task":"evaluation", "time":"09:00"}}', explain: "The model returns a proposed tool call. It has not changed the calendar yet." },
-      execute: { label: "TOOL EXECUTION", file: "tool_result.json", code: '{"tool":"schedule_focus",\n "result":{"ok":true, "time":"09:00"}}', explain: "Python validates the request, runs the calendar tool, and records its actual result." },
-      verify: { label: "VERIFICATION", file: "run_check.json", code: '{"scheduled_blocks":5,\n "required_blocks":5,\n "success":true}', explain: "The Harness checks the resulting state before reporting the task complete." }
+      observe: {
+        label: "OBSERVE · INPUT", file: "history[0]", actor: "Agent runtime → LLM",
+        data: { role: "user", content: "Where is Python Basics, and can I borrow it?" },
+        explain: "The runtime sends the user message and tool definitions to the model. 图书数据仍在 Python 环境中，模型尚未读取。",
+        next: "Next → the model may answer or request a tool."
+      },
+      decide: {
+        label: "DECIDE · MODEL OUTPUT", file: "response.output[0]", actor: "LLM → Agent runtime",
+        data: { type: "function_call", call_id: "call_find_1", name: "find_book", arguments: JSON.stringify({ title: "Python Basics" }) },
+        explain: "The model chose find_book and supplied its arguments. 这是调用请求；模型本身没有执行 Python 函数，也不知道查询结果。",
+        next: "Next → Python parses arguments and looks up find_book in its executor map."
+      },
+      execute: {
+        label: "EXECUTE · TOOL RESULT", file: "find_book(title)", actor: "Python tool → Agent runtime",
+        data: foundBook,
+        explain: "Python calls the approved local function and reads the book record. 真正访问数据的是程序；它得到书架与 book_id，尚未确认可借状态。",
+        next: "Next → serialize this result and attach it to the original call_id."
+      },
+      feedback: {
+        label: "FEEDBACK · NEXT INPUT", file: "history.append(...)" , actor: "Agent runtime → LLM again",
+        data: { type: "function_call_output", call_id: "call_find_1", output: JSON.stringify(foundBook) },
+        explain: "The runtime returns the result to the model using the same call_id. 模型再次决策：还需调用 check_availability 才能回答是否可借。",
+        next: "Loop ↺ another model API call → check_availability → Python executes → feedback → final answer."
+      }
     };
     const buttons = document.querySelectorAll("[data-stage]");
     for (const button of buttons) {
@@ -297,8 +374,10 @@ python3 -m venv .venv
         for (const other of buttons) other.setAttribute("aria-pressed", String(other === button));
         document.getElementById("demo-stage").textContent = stage.label;
         document.getElementById("demo-file").textContent = stage.file;
-        document.getElementById("demo-code").textContent = stage.code;
+        document.getElementById("demo-actor").textContent = stage.actor;
+        document.getElementById("demo-code").textContent = JSON.stringify(stage.data, null, 2);
         document.getElementById("demo-explain").textContent = stage.explain;
+        document.getElementById("demo-next").textContent = stage.next;
       });
     }
   </script>

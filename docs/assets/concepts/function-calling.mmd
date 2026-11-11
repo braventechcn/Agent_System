@@ -1,0 +1,13 @@
+sequenceDiagram
+    actor User
+    participant Runtime as Agent Runtime
+    participant LLM
+    participant Tool as Python Tool
+    User->>Runtime: Ask about a book
+    Runtime->>LLM: User input + tool definitions
+    LLM-->>Runtime: function_call(name, arguments, call_id)
+    Note over Runtime: Parse, validate, and authorize
+    Runtime->>Tool: Execute approved function
+    Tool-->>Runtime: Actual result or error
+    Runtime->>LLM: function_call_output(same call_id, result)
+    LLM-->>Runtime: Another call or final answer
