@@ -3,11 +3,11 @@
 </p>
 
 <p align="center"><strong>Build an agent. Watch it decide. Trace what actually runs.</strong></p>
-<p align="center">🧪 7 runnable labs &nbsp;·&nbsp; 🧭 7-module roadmap &nbsp;·&nbsp; 🔄 Actively updated / 持续更新中</p>
+<p align="center">🧪 7 runnable labs &nbsp;·&nbsp; 🧭 7-module basics track &nbsp;·&nbsp; 🔄 Work in progress / 持续更新中</p>
 <p align="center"><a href="https://braventechcn.github.io/Agent_System/"><strong>🌐 Open the learning portal</strong></a> · <a href="https://github.com/braventechcn/Agent_System"><strong>View source on GitHub</strong></a></p>
 <p align="center"><a href="#learning-roadmap">Learning roadmap</a> · <a href="#study-notes">Study notes</a> · <a href="#choose-a-lab">Choose a lab</a> · <a href="#inside-the-live-labs">Inside the labs</a> · <a href="#quick-start">Quick start</a></p>
 
-Explore agent systems through seven runnable Python labs, from a six-room cleaner to a daily focus planner and its reliability evaluation. The detailed guides and code comments are primarily in Chinese.
+Explore agent systems through seven runnable Python labs, from a six-room cleaner to a daily focus planner and its reliability evaluation. This is the current Agent basics track; more notes, topics, and projects will follow. The detailed guides and code comments are primarily in Chinese.
 
 ## Learning Roadmap
 
@@ -29,7 +29,7 @@ The roadmap numbers describe the learning sequence. The code directories use `00
 
 ## Study Notes
 
-The available Notion notes cover modules 01–06. Module 07 has a self-contained lab guide; return to the code and traces to test each idea.
+The linked Notion notes are **still being written and revised**. They currently accompany modules 01–06, but their coverage is not final; the Harness note in particular will continue to grow. Module 07 has a self-contained lab guide while its separate study note is pending. Return to the code and traces to test each idea.
 
 | Module | Study notes | Lab guide |
 | --- | --- | --- |
@@ -39,7 +39,7 @@ The available Notion notes cover modules 01–06. Module 07 has a self-contained
 | 04 · Context and memory | [Agent 基础 · Context、Session、Memory 与 RAG](https://sphenoid-rhodium-72f.notion.site/Agent-Agent-Context-Session-Memory-RAG-4109d02716b680a8a3f5c6482bf87564) | [Study assistant](03_context_session_memory_rag/README.md) |
 | 05 · Planning and skills | [Agent 基础 · Planning、Reflection 与 Skill](https://sphenoid-rhodium-72f.notion.site/Agent-Agent-Planning-Reflection-Skill-4109d02716b680a68216c1bfb3f033da) | [Virtual meeting](04_planning_reflection_skill/README.md) |
 | 06 · Harness and task runtime | [Agent 基础 · Harness 与任务运行机制](https://sphenoid-rhodium-72f.notion.site/Agent-Harness-4139d02716b68084925ffe5251428ac7?source=copy_link) | [Daily Focus Planner](05_harness/README.md) |
-| 07 · Evaluation and reliability | — | [Reliability diagnosis](06_evaluation_reliability/README.md) |
+| 07 · Evaluation and reliability | 📝 To be added / 待更新 | [Reliability diagnosis](06_evaluation_reliability/README.md) |
 
 Notion controls access to these pages. Repository links do not change their sharing permissions; readers need the pages to be published or shared with them.
 
@@ -132,6 +132,10 @@ The [Daily Focus Planner](05_harness/README.md) turns a graduate student's and A
 
 The [reliability diagnosis lab](06_evaluation_reliability/README.md) evaluates the real Daily Focus Planner across eight deterministic scenarios. It checks run artifacts independently, catches false completion, compares error feedback with repeated mistakes, and reports how retry and resume affect outcomes and cost.
 
+## What's next · 待更新
+
+The seven labs form the **current Agent basics track**. The study notes are still in progress, and the existing guides and experiments may be refined as those notes develop. Future updates will add more Agent topics and runnable projects beyond this seven-module roadmap; new material will be linked here as it becomes available.
+
 ## Quick start
 
 Create a virtual environment if you do not already have one, then run the first experiment from the repository root:
@@ -167,7 +171,7 @@ To build a local daily task plan and inspect a resumable Harness, run:
 
 The [Harness guide](05_harness/README.md) explains the generated brief, event log, checkpoint, and optional LLM mode.
 
-To run the final offline reliability suite and inspect its report:
+To run the offline reliability suite and inspect its report:
 
 ```bash
 .venv/bin/python 06_evaluation_reliability/evaluate.py suite
